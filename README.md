@@ -27,6 +27,7 @@ To report an issue or request a feature, please use the Github issues page, foun
 * That random guy
 * Thomas
 * NewSoundNetwork
+* Gatt
 
 ###### If your name is not for whatever reason on that list and you have contributed, please contact me.
 
