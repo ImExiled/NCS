@@ -12,9 +12,11 @@ and other things, that the default Nightcore-331 just doesn't have. You can find
 
 ### Issues/Feature Requests
 
-To report an issue or request a feature, please use the Github issues page, found [here](https://github.com/Nuvm/NCS/issues).
+To report an issue or request a feature, please use the Github issues page, found [here](https://github.com/bentenz5/NCS/issues).
 
 ### Developers & Current Project Statuses
+##### Project Status -- Nearing Inital Public Release
+
 * Nuvm (Busy doing dank memes.)
 * CSxKING
 * Pixel
