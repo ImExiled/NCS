@@ -19,7 +19,8 @@ Now, we're moving on to bigger things. A new platform known as Musiqpad is out i
 To report an issue or request a feature, please use the Github issues page, found [here](https://github.com/bentenz5/NCS/issues).
 
 ### Developers & Current Project Statuses
-##### Project Status -- Nearing Inital Public Release
+##### Project Status -- Released!
+##### Development Status -- Still Adding Stuff!
 
 * Nuvm (Busy doing dank memes.)
 * CSxKING
