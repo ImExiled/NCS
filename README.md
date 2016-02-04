@@ -10,6 +10,8 @@ After plug.dj shut down, the people in the Nightcore-331 community built their o
 we once had, we're ever growing once again. Because of this, we made NCS as a replacement for RCS, so that we can add features,
 and other things, that the default Nightcore-331 just doesn't have. You can find the new site here: https://alpha.nightcore-331.net
 
+Now, we're moving on to bigger things. A new platform known as Musiqpad is out in alpha now, and so, NCS is moving over to it! There will be no more updates for alpha.nightcore-331.net's version of NCS, however it will remain available.
+
 ### Issues/Feature Requests
 
 To report an issue or request a feature, please use the Github issues page, found [here](https://github.com/bentenz5/NCS/issues).
