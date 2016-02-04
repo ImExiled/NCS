@@ -1,3 +1,4 @@
+(function(){
 // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
 var version = "0.1.0 | Finally! Its here!";
 var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
@@ -43,7 +44,7 @@ window.onbeforeunload = function(e) {
 };
 
 
-var NCS = (function() {
+var init = (function() {
     var models = {
         'tab': `<div data-ng-click="prop.c = 4" data-ng-class="{\'active\' : prop.c == 4}" class="tab ncs-tab">
                 <span class="icon-info">NCS</span>
@@ -433,7 +434,7 @@ function alertSong(data){
             setTimeout(function() {
                 $("#notifySound").remove();
             }, 100);
-            
+
 		var notif = new Notification("Current Song is over 6 minutes", { icon: 'http://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
 	        notif.onclick = function() {
 	          window.focus();
@@ -443,10 +444,10 @@ function alertSong(data){
 	          notif.close()
 	        }, 6000);
 		}
-	
+
 	    prevDJ = API.queue.getDJ().un;
 	}, 1000);
-	
+
 }
 
 //API.on(API.DATA.EVENTS.DJ_QUEUE_CYCLE, alertSong);
@@ -484,3 +485,4 @@ $('#notifications').click(function(e) { if (e.target === this){ hideNotif(); }})
 $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
 $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
 */
+})();
