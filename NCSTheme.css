@@ -4,14 +4,14 @@
 
 /* Temp ETA Fix */
 .btn-join::after {
-    z-index: 6;
-    content: attr(data-eta); 
-    display: inline-block;
-    top: 15px;
-    left: 15px;
-    font-size:12px; 
-    width: 100px;
-    height: 100px;
+    z-index: 6 !important;
+    content: attr(data-eta) !important; 
+    display: inline-block !important;
+    top: 15px !important;
+    left: 15px !important;
+    font-size:12px !important; 
+    width: 100px !important;
+    height: 100px !important;
 }
 
 #NCSETA.hidden {
