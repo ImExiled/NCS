@@ -2,6 +2,18 @@
 
 /* other */
 
+/* Temp ETA Fix */
+.btn-join::after {
+    z-index: 6;
+    content: attr(data-eta); 
+    display: inline-block;
+    top: 15px;
+    left: 15px;
+    font-size:12px; 
+    width: 100px;
+    height: 100px;
+}
+
 #NCSETA.hidden {
     z-index: 6;
     display: block;
