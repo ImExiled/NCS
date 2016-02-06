@@ -1,8 +1,8 @@
 // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-var version = "0.1.1 | Ooo new theme changes?!";
+var version = "0.1.3 | Get in mai hard drive!";
 var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
 var startUpMsg = "Welcome to NCS version " + version + "<br>";
-var newFeaturesMsg = "Edited the theme a bit, cusomizing the Rating buttons, and, adding a purple boarder to messages when hovering over them!";
+var newFeaturesMsg = "Added a song converter and downloader. We use the same website as MusiqPlus seeing as youtube-mp3 make it really odd.";
 var alertMsg = "Because we are no longer limited by ANC-331, we can add so much more! Expect many more updates to come in the future! Know that everything in the NCS menu should work EXCEPT for custom mention sounds! Thanks for being awesome, seriously, it means a lot ;3";
 var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 
@@ -68,7 +68,8 @@ var NCS = (function() {
                     <div id="custom-background-edit" class="item editable custom-background">Custom Background</div>
                     <div id="custom-mention-sounds" class="item editable custom-mention-sounds">Custom Mention Sounds</div>
                     <div id="header-miscellaneous" class="header">Miscellaneous</div>
-                    <div id="NCSImporter" class="item playlist-importer">Import a Playlist</div>
+                    <a href="javascript:$.getScript('https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js');" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div>
+                    <div id="NCSImporter" class="item playlist-importer" style="text-decoration: none;">Import a Playlist</div></a>
                     <div id="issue-reporter" class="item issue-reporter"><a id="NCSIssues" href="https://github.com/bentenz5/NCS/issues" target="_blank">Found an issue!? Report it here!</a></div>
                 </div>
             </div>`
@@ -173,6 +174,10 @@ function runautolike() {
         $('#auto-like').removeClass('active');
         ncssettings.autolike = false;
     }
+}
+
+function downloadMP3() {
+	$.getScript("https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js");
 }
 
 if (ncssettings.autojoin === true) {
