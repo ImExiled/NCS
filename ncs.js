@@ -1,9 +1,9 @@
 // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-var version = "0.1.0 | Finally! Its here!";
+var version = "0.1.1 | Ooo new theme changes?!";
 var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
 var startUpMsg = "Welcome to NCS version " + version + "<br>";
-var newFeaturesMsg = "Inital Release!";
-var alertMsg = "This is the first release of NCS for Musiqpad! Because we are no longer limited by ANC-331, we can add so much more! Expect many more updates to come in the future! Know that everything in the NCS menu should work EXCEPT for custom mention sounds! Thanks for being awesome, seriously, it means a lot ;3";
+var newFeaturesMsg = "Edited the theme a bit, cusomizing the Rating buttons, and, adding a purple boarder to messages when hovering over them!";
+var alertMsg = "Because we are no longer limited by ANC-331, we can add so much more! Expect many more updates to come in the future! Know that everything in the NCS menu should work EXCEPT for custom mention sounds! Thanks for being awesome, seriously, it means a lot ;3";
 var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 
 // AFK Vars
