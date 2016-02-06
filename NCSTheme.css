@@ -38,189 +38,216 @@
 }
 
 /* Rating Buttons */
-.ctrl.btn-upvote.hidden {
-    opacity: .2;
+.ctrl {
+  width: 115.4px !important;
 }
 
-.ctrl.btn-upvote {
-  opacity: .4;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+/* GRAB */
+
+.btn-grab {
+  z-index: 6;
+  background: transparent;
+  color: #fff;
+  line-height: 5px;
+  padding: 0 5px;
+  border-radius: 1px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: visible;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;;
 }
 
-.ctrl.btn-upvote:hover {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-grab.active {
+  background: #455EDE;
 }
 
-
-.ctrl.btn-upvote.active:hidden {
-   opacity: .2;
-   transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-grab:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3%;
 }
 
-.ctrl.btn-upvote.active {
-     opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.active:before {
+  content: "";
+  position: absolute;
+  left: calc(25% - 25px);
+  width: 10px;
+  background-color: #3B50CE;
+  border-radius: 100%;  
+  
+  -webkit-animation: scaleout 0.3s 1 ease-out;
+  animation: scaleout 0.3s 1 ease-out;
+  
+  opacity: 0;
 }
 
-.ctrl.btn-upvote.active:active {
-      opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.ink {
+  background: none;
+  color: #1a1a1a;
 }
 
-
-.ctrl.btn-grab {
-  opacity: .4;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.ink.active {
+  background: #E0E0E0;
 }
 
-.ctrl.btn-grab:hover {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.ink.active:before {
+  background: #BDBDBD;
 }
 
-
-.ctrl.btn-grab.active:hidden {
-   opacity: .2;
-   transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+/* WOOT */
+.btn-upvote {
+  background: transparent;
+  color: #fff;
+  height: 6px;
+  line-height: 5px;
+  padding: 0 5px;
+  border-radius: 1px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;;
 }
 
-.ctrl.btn-grab.active {
-     opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-upvote.active {
+  background: #455EDE;
 }
 
-.ctrl.btn-grab.active:active {
-      opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-upvote:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3%;
 }
 
-.ctrl.btn-join {
-  opacity: .4;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+/* MEH */
+.btn-downvote {
+  background: transparent;
+  color: #fff;
+  height: 6px;
+  line-height: 5px;
+  padding: 0 5px;
+  border-radius: 1px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;;
 }
 
-.ctrl.btn-join:hover {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-downvote.active {
+  background: #455EDE;
 }
 
-
-.ctrl.btn-join.active:hidden {
-   opacity: .2;
-   transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-downvote:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3%;
 }
 
-.ctrl.btn-join.active {
-     opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+/* SNOOZE */
+.btn-snooze {
+  background: transparent;
+  color: #fff;
+  height: 6px;
+  line-height: 5px;
+  padding: 0 5px;
+  border-radius: 1px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;;
 }
 
-.ctrl.btn-join.active:active {
-      opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-}
-.ctrl.btn-snooze {
-  opacity: .4;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-snooze.active {
+  background: #455EDE;
 }
 
-.ctrl.btn-snooze:hover {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-}
-
-
-.ctrl.btn-snooze.active:hidden {
-   opacity: .2;
-   transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-.ctrl.btn-snooze.active {
-     opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-}
-
-.ctrl.btn-snooze.active:active {
-      opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-}
-
-.ctrl.btn-downvote {
-  opacity: .4;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
-}
-
-.ctrl.btn-downvote:hover {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-snooze:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3%;
 }
 
 
-.ctrl.btn-downvote.active:hidden {
-   opacity: .2;
-   transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+
+/* DJ */
+.btn-join {
+  background: transparent;
+  color: #fff;
+  height: 6px;
+  line-height: 5px;
+  padding: 0 5px;
+  border-radius: 1px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;;
 }
 
-.ctrl.btn-downvote.active {
-     opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-join.active {
+  background: #455EDE;
 }
 
-.ctrl.btn-downvote.active:active {
-      opacity: 1;
-  transition: opacity .3s ease-in-out;
-  -moz-transition: opacity .3s ease-in-out;
-  -webkit-transition: opacity .3s ease-in-out;
+.btn-join:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3%;
 }
+
+
+#controls {
+  opacity: .3;
+}
+
+/* TEXT BOXES */
+
+
+/* Anmiation from http://tobiasahlin.com/spinkit/ */
+
+@-webkit-keyframes scaleout {
+  0% { 
+    opacity: 1;
+    -webkit-transform: scale(0.0) 
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleout {
+  0% { 
+    opacity: 1;
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 100% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
 
 /* Loli Counter */
 #loli-counter.hidden {
