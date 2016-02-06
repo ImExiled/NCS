@@ -10,7 +10,26 @@
     -ms-transition: border-color 1s ease;
     -o-transition: border-color 1s ease;
     transition: border-color 1s ease;
+}
 
+/* MSG-IN BOARDER BRO */
+#msg-in {
+    border: 1.5px solid rgba(0,0,0,0) !important;
+        -webkit-transition: border-color 1s ease !important;
+    -moz-transition: border-color 1s ease !important;
+    -ms-transition: border-color 1s ease !important;
+    -o-transition: border-color 1s ease !important;
+    transition: border-color 1s ease !important;
+
+}
+
+#msg-in:hover {
+ 	border: 1.5px solid #58456d !important;
+    -webkit-transition: border-color 1s ease !important;
+    -moz-transition: border-color 1s ease !important;
+    -ms-transition: border-color 1s ease !important;
+    -o-transition: border-color 1s ease !important;
+    transition: border-color 1s ease !important;
 }
 
 #messages .cm:hover {
