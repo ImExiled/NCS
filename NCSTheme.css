@@ -2,6 +2,26 @@
 
 /* other */
 
+/* MESSAGE BOARDERS BRO */
+#messages .cm {
+    border: 1px solid rgba(0,0,0,0);
+        -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+
+}
+
+#messages .cm:hover {
+ 	border: 1px solid #58456d;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease;
+    -ms-transition: border-color 1s ease;
+    -o-transition: border-color 1s ease;
+    transition: border-color 1s ease;
+}
+
 /* Temp ETA Fix */
 .btn-join::after {
     z-index: 6 !important;
