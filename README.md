@@ -22,6 +22,7 @@ To report an issue or request a feature, please use the Github issues page, foun
 ##### Project Status -- Released!
 ##### Development Status -- Still Adding Stuff!
 
+### Developers
 * Nuvm (Busy doing dank memes.)
 * CSxKING
 * Pixel
