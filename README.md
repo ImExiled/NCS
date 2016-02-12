@@ -4,7 +4,7 @@
 
 #### Note: This version of NCS will NOT work with alpha.nightcore-331.net! This will ONLY work with musiqpad pads!
 
-NCS can be installed by visiting http://ncs.electricgaming.ga/new/#download and bookmarking the button there.
+NCS can be installed by visiting http://electricgaming.ga/ncs/new/#download and bookmarking the button there.
 
 ### What is NCS
 
