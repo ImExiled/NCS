@@ -23,6 +23,11 @@
 
 }
 
+.cm.room-greet {
+    background-color: rgba(69, 94, 222, .2);
+    color: #4694dd;
+}
+
 #msg-in:hover {
  	border: 1.5px solid #58456d !important;
     -webkit-transition: border-color 1s ease !important;
