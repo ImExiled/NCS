@@ -5,11 +5,11 @@ if (localStorage.NCSload){
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.4 | Oi! Button 2, get out of here!";
+    var version = "0.1.5 | Gimme mai moosic!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + "<br>";
-    var newFeaturesMsg = "Two buttons? No longer!";
-    var alertMsg = "Keepin' er' goin!";
+    var newFeaturesMsg = "Song Downloader, we use the same website as Musiqplus as its easier to work with then youtube-mp3.<br>Temporary fix for users with small screens being unable to access all features." + "<br>";
+    var alertMsg = "There is a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
     var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 
     // AFK Vars
@@ -53,6 +53,18 @@ else{
         delete localStorage.NCSload;
     });
 
+// Musiqpad Video MP3 Downloader
+function grabVidId() {
+    var playersrc = API.room.getMedia().cid;
+    return playersrc;
+}
+
+// Download thas shit!
+function downloadThasShit() {
+    //var playersrc = grabVidId();
+    window.open("http://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
+    console.log("[NCS] Downloaded Video!");
+}
 
     var NCS = (function() {
         var models = {
@@ -79,7 +91,7 @@ else{
                         <div id="custom-background-edit" class="item editable custom-background">Custom Background</div>
                         <div id="custom-mention-sounds" class="item editable custom-mention-sounds">Custom Mention Sounds</div>
                         <div id="header-miscellaneous" class="header">Miscellaneous</div>
-                        <a href="javascript:$.getScript('https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js');" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div>
+                        <a href="javascript:downloadThasShit();" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div>
                         <div id="NCSImporter" class="item playlist-importer" style="text-decoration: none;">Import a Playlist</div></a>
                         <div id="issue-reporter" class="item issue-reporter"><a id="NCSIssues" href="https://github.com/bentenz5/NCS/issues" target="_blank">Found an issue!? Report it here!</a></div>
                     </div>
