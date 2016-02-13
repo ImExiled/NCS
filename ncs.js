@@ -531,8 +531,13 @@ function downloadThasShit() {
     $('#notifications').click(function(e) { if (e.target === this){ hideNotif(); }});
 
     // Commented out untill we need it again....
+    // Don't use this method anymore, i'm doing it a seperate way....
     
-    $("#app-left").append('<div id="countdown">Time Till Valentines Day Event<iframe src="https://freesecure.timeanddate.com/countdown/i52f8ao9/n75/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs100/szw448/szh189/iso2016-02-13T16:00:00" allowTransparency="true" frameborder="0" width="146" height="40"></iframe><div>');
+    /*
+    $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
     $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
+    */
     
+    // use this one instead.
+    $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
 }
