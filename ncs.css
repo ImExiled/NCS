@@ -1,5 +1,5 @@
-.update-check,#update-check,.item {
-    text-decoration: none !important;
+.items>a {
+    text-decoration: none;
 }
 
 #countdown.hidden {
