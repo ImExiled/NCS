@@ -173,7 +173,7 @@
     height: 100%;
     animation: fadein 0.25s;
     box-shadow: inset -176px 17px 291px -88px rgba(0,0,0,0.75);
-    overflow-y: auto;
+    overflow: auto;
 }
 
 #ncs-back .items {
