@@ -1,4 +1,6 @@
-
+.item {
+	text-decoration: none;
+}
 
 #countdown.hidden {
   background: #313131;
