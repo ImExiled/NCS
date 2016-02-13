@@ -1,14 +1,15 @@
 if (localStorage.NCSload){
-    alert(errorMsg);
+    //alert(errorMsg);
+    $('#messages').append('<center style=color:#A77DC2 class="cm mention">' + errorMsg + '</center>');
 }
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.3 | Get in mai hard drive!";
+    var version = "0.1.4 | Oi! Button 2, get out of here!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + "<br>";
-    var newFeaturesMsg = "Added a song converter and downloader. We use the same website as MusiqPlus seeing as youtube-mp3 make it really odd.";
-    var alertMsg = "Because we are no longer limited by ANC-331, we can add so much more! Expect many more updates to come in the future! Know that everything in the NCS menu should work EXCEPT for custom mention sounds! Thanks for being awesome, seriously, it means a lot ;3";
+    var newFeaturesMsg = "Two buttons? No longer!";
+    var alertMsg = "Keepin' er' goin!";
     var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 
     // AFK Vars
