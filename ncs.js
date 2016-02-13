@@ -5,12 +5,33 @@ if (localStorage.NCSload){
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.5 | Gimme mai moosic!";
+    var version = "0.1.5";
+    var versionMsg = "Yo! I'm automated now!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
-    var startUpMsg = "Welcome to NCS version " + version + "<br>";
-    var newFeaturesMsg = "Song Downloader, we use the same website as Musiqplus as its easier to work with then youtube-mp3.<br>Temporary fix for users with small screens being unable to access all features." + "<br>";
+    var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
+    var newFeaturesMsg = "Song Downloader, we use the same website as Musiqplus as its convienent.<br>Temporary fix for users with small screens being unable to access all features." + "<br>";
     var alertMsg = "There is a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
     var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
+    // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
+
+    //Update check
+    function updateCheck(){
+        $.ajax({
+            type: "GET",
+            url: "https://rawgit.com/bentenz5/NCS/master/last.json"
+        }).done(function(data){
+            if(data.version != version){
+                $('#messages').append('<center style=color:#A77DC2 class="cm broadcast"><div class="mdi mdi-alert msg"></div> NCS has updated! Refresh your page to get the latest update!<br> <a href="'+data.changelog+'" target="_blank">Changelog</a> | New version : '+data.version+'</center>');
+                console.log("[NCS] Update available");
+            }else{
+                console.log("[NCS] Up to date!");
+            }
+        });
+    }
+    updateCheck();
+    var updateInterval = setInterval(function(){
+        updateCheck();
+    }, 600000);
 
     // AFK Vars
     setafk = false;
@@ -93,7 +114,9 @@ function downloadThasShit() {
                         <div id="header-miscellaneous" class="header">Miscellaneous</div>
                         <a href="javascript:downloadThasShit();" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div>
                         <div id="NCSImporter" class="item playlist-importer" style="text-decoration: none;">Import a Playlist</div></a>
+                        <a href="javascript:updateCheck();"><div id="update-check" class="item update-check">Check for Updates</div></a>
                         <div id="issue-reporter" class="item issue-reporter"><a id="NCSIssues" href="https://github.com/bentenz5/NCS/issues" target="_blank">Found an issue!? Report it here!</a></div>
+                        
                     </div>
                 </div>`
         };
@@ -508,8 +531,8 @@ function downloadThasShit() {
     $('#notifications').click(function(e) { if (e.target === this){ hideNotif(); }});
 
     // Commented out untill we need it again....
-    /*
-    $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
+    
+    $("#app-left").append('<div id="countdown">Time Till Valentines Day Event<iframe src="https://freesecure.timeanddate.com/countdown/i52f8ao9/n75/cf12/cm0/cu4/ct0/cs0/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs100/szw448/szh189/iso2016-02-13T16:00:00" allowTransparency="true" frameborder="0" width="146" height="40"></iframe><div>');
     $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
-    */
+    
 }
