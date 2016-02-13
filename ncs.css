@@ -1,3 +1,5 @@
+
+
 #countdown.hidden {
   background: #313131;
   width: 250px;
@@ -204,10 +206,10 @@
 
 #ncs-back .item .mdi {
     display: none;
-    float: right;
+    float: left;
     color: deepskyblue;
-    left: 10px;
-    position: absolute;
+    left: -30px;
+    position: relative;
 }
 
 #ncs-back .item.active .mdi {
@@ -239,6 +241,9 @@
     display: inline !important;
     color: white !important;
     font-size: 21px;
+    	position: relative;
+    float: left;
+    left: -30px;
 }
 .mdi-puzzle {
     display: inline !important;
