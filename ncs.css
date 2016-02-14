@@ -1,5 +1,6 @@
 .items>a {
     text-decoration: none;
+    position:relative;
 }
 
 #countdown.hidden {
