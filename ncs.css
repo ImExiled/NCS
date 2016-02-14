@@ -183,6 +183,7 @@
 #ncs-back .items {
     display: flex;
     flex-direction: column;
+    position:relative;
 }
 
 #ncs-back .item {
