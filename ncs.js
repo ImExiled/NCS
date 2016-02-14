@@ -5,7 +5,7 @@ if (localStorage.NCSload){
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.5";
+    var version = "0.1.6";
     var versionMsg = "Yo! I'm automated now!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
