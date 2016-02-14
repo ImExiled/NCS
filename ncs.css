@@ -310,3 +310,9 @@ input#background-input {
     margin-right: 5px;
     margin-left: 4px;
 }
+
+.ncscm{
+    padding: 6px 10px;
+    animation: fadein 0.25s;
+    word-wrap: break-word;
+}
