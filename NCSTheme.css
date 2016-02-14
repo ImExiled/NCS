@@ -338,3 +338,8 @@
     -moz-transition: opacity .2s ease-in-out;
     -webkit-transition: opacity .2s ease-in-out;
 }
+
+/* Progress bar */
+.song-progress {
+    background-color: #404c84 !important;
+}
