@@ -543,7 +543,8 @@ function downloadThasShit() {
 }
 
 API.on(API.DATA.EVENTS.CHAT,function (data) {
-    if (['PixelBreeze', 'CSxKING'].indexOf(API.room.getUser(data.uid).un) === -1) return;
-    $('.ncs-chat-bdg').remove();
-    $('.cm.message .text').append('<div class="ncs-chat-bdg ncs-dev"></div>');
+ if (API.room.getUser(data.uid).un == 'PixelBreeze') {
+$('.ncs-chat-bdg').remove();
+$('.cm.message .text').append('<div class="ncs-chat-bdg ncs-dev"></div>');
+ }
 });
