@@ -124,9 +124,9 @@ function downloadThasShit() {
         var tab = $('.dash .tray').append(models.tab);
         var back = $('#app-right').append(models.back);
 
-        back.find('.item').append('<div class="mdi-wrapper"><i class="mdi mdi-check"></i></div>');
-        back.find('.editable').append('<div class="mdi-wrapper"><i class="mdi mdi-pencil"></i></div>');
-        back.find('.header').append('<div class="mdi-wrapper"><i class="mdi mdi-puzzle"></i></div>');
+        back.find('.item').append('<i class="mdi mdi-check"></i>');
+        back.find('.editable').append('<i class="mdi mdi-pencil"></i>');
+        back.find('.header').append('<i class="mdi mdi-puzzle"></i>');
 
         // Had to remove the comments that were here because they were kinda distracting :\
 
