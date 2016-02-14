@@ -25,11 +25,11 @@ To report an issue or request a feature, please use the Github issues page, foun
 ### Developers
 * Nuvm (Busy doing dank memes.)
 * CSxKING
+* Don
 * Pixel
 * WindWalk (MIA)
 
 ### Contributers
-* Don
 * Thomas
 * TheBanHammer
 * That random guy
