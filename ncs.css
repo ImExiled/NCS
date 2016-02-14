@@ -206,12 +206,17 @@
 #ncs-back .item:hover {
 }
 
+.mdi-wrapper {
+	display:inline;
+	position:relative;
+}
+
 #ncs-back .item .mdi {
     display: none;
-    float: left;
+    float: right;
     color: deepskyblue;
-    left: -30px;
-    position: relative;
+    left: 10px;
+    position: absolute;
 }
 
 #ncs-back .item.active .mdi {
