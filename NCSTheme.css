@@ -345,6 +345,9 @@
 }
 
 /*Every Other Chat Message*/
+
+/* I commented this out till it looks a little better with the color scheme ;3 --CSxKING
 .cm:nth-child(odd){
 	background: rgba(48, 50, 53, 0.5);
 }
+*/
