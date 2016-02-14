@@ -343,3 +343,14 @@
 .song-progress {
     background-color: #404c84 !important;
 }
+
+/*Every Other Chat Message*/
+.cm:nth-child(odd){
+	background: rgba(48, 50, 53, 0.5);
+}
+
+.ncscm{
+    padding: 6px 10px;
+    animation: fadein 0.25s;
+    word-wrap: break-word;
+}
