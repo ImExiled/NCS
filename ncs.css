@@ -207,16 +207,11 @@
 #ncs-back .item:hover {
 }
 
-.mdi-wrapper {
-	display:inline;
-	position:relative;
-}
-
 #ncs-back .item .mdi {
     display: none;
     float: right;
     color: deepskyblue;
-    left: -85px;
+    left: 10px;
     position: absolute;
 }
 
