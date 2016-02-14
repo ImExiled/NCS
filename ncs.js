@@ -541,3 +541,9 @@ function downloadThasShit() {
     // use this one instead.
     $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
 }
+
+API.on(API.DATA.EVENTS.CHAT,function (data) {
+    if (['PixelBreeze', 'CSxKING'].indexOf(API.room.getUser(data.uid).un) === -1) return;
+    $('.ncs-chat-bdg').remove();
+    $('.cm.message .text').append('<div class="ncs-chat-bdg ncs-dev"></div>');
+});
