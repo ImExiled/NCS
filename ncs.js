@@ -539,13 +539,13 @@ function downloadThasShit() {
     */
     
     // use this one instead.
-    $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
+    //$.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
 }
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
     var msg = $('#cm-' + data.cid);
     var user = API.room.getUser(data.uid);
-    if(user.un === "PixelBreeze" || user.un === "CSxKING" || user.un === "Don" || user.un === "tonkku107" ){
+    if(user.un === "PixelBreeze" || user.un === "CSxKING" || user.un === "Don" || user.un === "tonkku107" || user.un === "Nuvm"){
         msg.find('>svg').after('<div class="ncs-chat-bdg ncs-dev"></div>');
     }
 });
