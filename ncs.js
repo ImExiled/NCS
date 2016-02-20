@@ -112,8 +112,7 @@ function downloadThasShit() {
                         <div id="custom-background-edit" class="item editable custom-background">Custom Background</div>
                         <div id="custom-mention-sounds" class="item editable custom-mention-sounds">Custom Mention Sounds</div>
                         <div id="header-miscellaneous" class="header">Miscellaneous</div>
-                        <a href="javascript:downloadThasShit();" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div>
-                        <div id="NCSImporter" class="item playlist-importer" style="text-decoration: none;">Import a Playlist</div></a>
+                        <a href="javascript:downloadThasShit();" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div></a>
                         <a href="javascript:updateCheck();"><div id="update-check" class="item update-check">Check for Updates</div></a>
                         <div id="issue-reporter" class="item issue-reporter"><a id="NCSIssues" href="https://github.com/bentenz5/NCS/issues" target="_blank">Found an issue!? Report it here!</a></div>
                         
