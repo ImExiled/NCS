@@ -5,12 +5,12 @@ if (localStorage.NCSload){
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.6";
-    var versionMsg = "Yo! I'm automated now!";
+    var version = "0.1.7";
+    var versionMsg = "The Launch is coming! The Launch is coming!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "Song Downloader, we use the same website as Musiqplus as its convienent.<br>Temporary fix for users with small screens being unable to access all features." + "<br>";
-    var alertMsg = "There is a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
+    var newFeaturesMsg = "Updated and added the countdown timer till Musiqpad launches servers to the public!" + "<br>";
+    var alertMsg = "There is (still) a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
     var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
@@ -538,7 +538,7 @@ function downloadThasShit() {
     */
     
     // use this one instead.
-    //$.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
+    $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
 }
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
