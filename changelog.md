@@ -1,5 +1,8 @@
 # NCS Change Logs (latest at top)
 
+#### 0.1.7
+* Added the countdown timer till Musiqpad launches. (Servers will become open to the public for download)
+
 #### 0.1.6
 * Fixed issue where some elements in the playlist we're broken.
 * Started work on our own websocket, which will open up opertunities for much more then we have now. (WIP, Not Yet Implemented)
