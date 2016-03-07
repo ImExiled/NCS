@@ -168,9 +168,9 @@ else{
         }
     }
 
-    var prevafkmsg
+    var prevafkmsg;
     function saveResponse() {
-        prevafkmsg = afkmsg
+        prevafkmsg = afkmsg;
         afkmsg = $('#afk-response').val();
         $('#afk-response').val('');
         if (afkmsg === "") {
@@ -513,6 +513,9 @@ else{
                 io.reconnectionDelay(50000);
                 ncssocket.on('auth', function(){
                     ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
+                });
+                ncssocket.on('broadcast', function(msg){
+                    API.chat.system(msg.msg);
                 });
             };
             var head = document.getElementsByTagName('head')[0];
