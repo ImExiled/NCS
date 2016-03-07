@@ -1,5 +1,8 @@
 # NCS Change Logs (latest at top)
 
+#### 0.1.8
+* Updated the theme to be more liked by adding better buttons, message borders, and fixing the horrible opacity levels.
+
 #### 0.1.7
 * Added the countdown timer till Musiqpad launches. (Servers will become open to the public for download)
 
