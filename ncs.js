@@ -507,7 +507,7 @@ else{
     function initWebSocket(){
         try {
             var reporter = function(){
-                var ncssocket = io('stats.fuechschen.org:6398');
+                var ncssocket = io('stats.fuechschen.org');
                 ncssocket.on('auth', function(){
                     ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
                 });
