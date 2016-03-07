@@ -36,6 +36,7 @@ To report an issue or request a feature, please use the Github issues page, foun
 * Thomas
 * NewSoundNetwork
 * Gatt
+* Fuechschen
 
 ###### If your name is not for whatever reason on that list and you have contributed, please contact me.
 
