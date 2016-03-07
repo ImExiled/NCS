@@ -517,6 +517,7 @@ else{
                         case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
                         default: API.chat.system(msg.msg); break;
                     }
+                    console.log('[NCS] Recieving message from NCS-Staff: ' + msg.msg);
                 });
             };
             var head = document.getElementsByTagName('head')[0];
