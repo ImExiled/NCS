@@ -151,7 +151,7 @@ else{
     })();
 
     // Loli Counter script -- Ported from the old NCS by CSxKING
-    $('#app-left').prepend('<span id="loli-counter"></span>');
+    $('#app-left').prepend('<span id="loli-counter">Loli count: 0</span>');
 
     var lolis = 0;
     API.on('chat', function(chat) {
@@ -517,6 +517,7 @@ else{
                         case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
                         default: API.chat.system(msg.msg); break;
                     }
+                    if(msg.sound) audioElement.play();
                     console.log('[NCS] Recieving message from NCS-Staff: ' + msg.msg);
                 });
             };
