@@ -5,11 +5,11 @@ if (localStorage.NCSload){
 else{
     localStorage.NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.7";
-    var versionMsg = "The Launch is coming! The Launch is coming!";
+    var version = "0.1.8";
+    var versionMsg = "Launch finished! Theme updates!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "Updated and added the countdown timer till Musiqpad launches servers to the public!" + "<br>";
+    var newFeaturesMsg = "Updated theme buttons and opacity!" + "<br>";
     var alertMsg = "There is (still) a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
     var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
