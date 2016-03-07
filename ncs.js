@@ -512,7 +512,11 @@ else{
                     ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
                 });
                 ncssocket.on('broadcast', function(msg){
-                    API.chat.system(msg.msg);
+                    switch (msg.type){
+                        case 'system': API.chat.system(msg.msg); break;
+                        case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
+                        default: API.chat.system(msg.msg); break;
+                    }
                 });
             };
             var head = document.getElementsByTagName('head')[0];
