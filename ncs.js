@@ -507,7 +507,7 @@ else{
     function initWebSocket(){
         try {
             var reporter = function(){
-                var ncssocket = io('stats.fuechschen.org');
+                var ncssocket = io('stats.fuechschen.org:6398');
                 io.reconnection(true);
                 io.reconnectionAttempts(20);
                 io.reconnectionDelay(50000);
