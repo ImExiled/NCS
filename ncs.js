@@ -75,17 +75,17 @@ else{
     });
 
 // Musiqpad Video MP3 Downloader
-function grabVidId() {
-    var playersrc = API.room.getMedia().cid;
-    return playersrc;
-}
+    function grabVidId() {
+        var playersrc = API.room.getMedia().cid;
+        return playersrc;
+    }
 
 // Download thas shit!
-function downloadThasShit() {
-    //var playersrc = grabVidId();
-    window.open("http://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
-    console.log("[NCS] Downloaded Video!");
-}
+    function downloadThasShit() {
+        //var playersrc = grabVidId();
+        window.open("http://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
+        console.log("[NCS] Downloaded Video!");
+    }
 
     var NCS = (function() {
         var models = {
@@ -151,26 +151,26 @@ function downloadThasShit() {
     })();
 
     // Loli Counter script -- Ported from the old NCS by CSxKING
-    $('#app-left').prepend('<span id="loli-counter"></span>');
+    $('#app-left').prepend('<span id="loli-counter">Loli count: 0</span>');
 
     var lolis = 0;
     API.on('chat', function(chat) {
-     lolis += (chat.message.match(/loli/gi) || []).length;
-     $('#loli-counter').text('Loli count: ' + lolis);
+        lolis += (chat.message.match(/loli/gi) || []).length;
+        $('#loli-counter').text('Loli count: ' + lolis);
     });
 
 
     //Functions
     function afk(data){
-    	if (setafk === true && cd === false && $('#cm-'+data.cid).hasClass('mention') === true){
-    		API.chat.send('[@'+$('#cm-'+data.cid+' .text .uname').text()+"] " + afkmsg);
-    		cooldown();
-    	}
+        if (setafk === true && cd === false && $('#cm-'+data.cid).hasClass('mention') === true){
+            API.chat.send('[@'+$('#cm-'+data.cid+' .text .uname').text()+"] " + afkmsg);
+            cooldown();
+        }
     }
 
-    var prevafkmsg
+    var prevafkmsg;
     function saveResponse() {
-        prevafkmsg = afkmsg
+        prevafkmsg = afkmsg;
         afkmsg = $('#afk-response').val();
         $('#afk-response').val('');
         if (afkmsg === "") {
@@ -180,23 +180,23 @@ function downloadThasShit() {
     }
 
     function cooldown(){
-    	cd = true;
-    	setTimeout(function(){cd = false;},10000);
+        cd = true;
+        setTimeout(function(){cd = false;},10000);
     }
 
     function runafk(){
-    	if(setafk === true){ //AFK OFF
-    		$('#afk-responder').removeClass('active');
-    		$('#msg-in').prop('disabled', false);
-    		$('#msg-in').attr("placeholder","Type a message and hit enter.");
-    		setafk = false;
-    	}
-    	else if(setafk === false){ //AFK ON
-    		$('#afk-responder').addClass('active');
-    		$('#msg-in').prop('disabled', true);
-    		$('#msg-in').attr("placeholder","Disable your AFK Responder to chat!");
-    		setafk = true;
-    	}
+        if(setafk === true){ //AFK OFF
+            $('#afk-responder').removeClass('active');
+            $('#msg-in').prop('disabled', false);
+            $('#msg-in').attr("placeholder","Type a message and hit enter.");
+            setafk = false;
+        }
+        else if(setafk === false){ //AFK ON
+            $('#afk-responder').addClass('active');
+            $('#msg-in').prop('disabled', true);
+            $('#msg-in').attr("placeholder","Disable your AFK Responder to chat!");
+            setafk = true;
+        }
     }
 
     function NCSafkResponseChanger(){
@@ -222,7 +222,7 @@ function downloadThasShit() {
     }
 
     function downloadMP3() {
-    	$.getScript("https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js");
+        $.getScript("https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js");
     }
 
     if (ncssettings.autojoin === true) {
@@ -254,7 +254,7 @@ function downloadThasShit() {
         if ($('.btn-upvote').hasClass('active')) return;
         $('.btn-upvote').click();
         if (ncssettings.autojoin === true) {
-                API.queue.join();
+            API.queue.join();
         }
     }
 
@@ -293,7 +293,7 @@ function downloadThasShit() {
         else {
             $('#custom-theme').removeClass('active');
             $('#NCSTheme').remove();
-    		ncssettings.customThemeEnabled = false;
+            ncssettings.customThemeEnabled = false;
         }
     }
 
@@ -306,18 +306,18 @@ function downloadThasShit() {
     }
     function normalize(number) {
         var addition = (number < 10
-          ? '0'
-          : '');
+            ? '0'
+            : '');
         return addition + number;
     }
-        var ETAInterval = setInterval(function() {
+    var ETAInterval = setInterval(function() {
         var position = API.queue.getPosition()
         position = (position < 0) ? API.queue.getDJs().length : position;
         var eta = ~~((position * (3.5 * 60)) + (API.room.getTimeRemaining()));
         if (ncssettings.eta === true) {
             $('.btn-join').attr('data-eta', 'ETA: ' + readable(eta));
         }
-      }, 1000);
+    }, 1000);
 
     if (ncssettings.eta === true) {
         ncssettings.autojoin = false;
@@ -340,9 +340,9 @@ function downloadThasShit() {
     }
 
     function saveResponse() {
-    afkmsg = $('#afk-response').val();
-    $('#afk-response').val('');
-    hideNotif();
+        afkmsg = $('#afk-response').val();
+        $('#afk-response').val('');
+        hideNotif();
     }
 
     function saveBackground() {
@@ -369,39 +369,39 @@ function downloadThasShit() {
     var notifcationsEnabled = ncssettings.desktopnotifications;
 
     function loadDesktopNotifs(){
-    	if (notifcationsEnabled === true){
-    		if (!Notification) {
-    		    alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
-    		} else if (Notification.permission !== "granted") {
-    		    Notification.requestPermission()
-    		}
-    	}
-    	if (notifcationsEnabled){
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
-      		$('#desktop-notifs').addClass("active");
-      	}else{
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
-      		$('#desktop-notifs').removeClass("active");
-      	}
+        if (notifcationsEnabled === true){
+            if (!Notification) {
+                alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
+            } else if (Notification.permission !== "granted") {
+                Notification.requestPermission()
+            }
+        }
+        if (notifcationsEnabled){
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
+            $('#desktop-notifs').addClass("active");
+        }else{
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
+            $('#desktop-notifs').removeClass("active");
+        }
     }
 
     function toggleDesktopNotifications(){
-    	notifcationsEnabled = !notifcationsEnabled;
-    	ncssettings.desktopnotifications = notifcationsEnabled;
-    	if (notifcationsEnabled === true){
-    		if (!Notification) {
-    		    alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
-    		} else if (Notification.permission !== "granted") {
-    		    Notification.requestPermission()
-    		}
-    	}
-    	if (notifcationsEnabled){
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
-      		$('#desktop-notifs').addClass("active");
-      	}else{
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
-      		$('#desktop-notifs').removeClass("active");
-      	}
+        notifcationsEnabled = !notifcationsEnabled;
+        ncssettings.desktopnotifications = notifcationsEnabled;
+        if (notifcationsEnabled === true){
+            if (!Notification) {
+                alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
+            } else if (Notification.permission !== "granted") {
+                Notification.requestPermission()
+            }
+        }
+        if (notifcationsEnabled){
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
+            $('#desktop-notifs').addClass("active");
+        }else{
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
+            $('#desktop-notifs').removeClass("active");
+        }
     }
 
 
@@ -411,16 +411,16 @@ function downloadThasShit() {
     }, 1000);
     API.on(API.DATA.EVENTS.CHAT, showNotification);
     function showNotification(data){
-    	if (notifcationsEnabled === true && $('#cm-'+data.cid).hasClass('mention') === true){
-    		var notif = new Notification($('#cm-'+data.cid+' .text .uname').text(), { icon: 'http://i.imgur.com/5ThdRUd.png', body: $('#cm-'+data.cid+' .text .umsg').text()});
+        if (notifcationsEnabled === true && $('#cm-'+data.cid).hasClass('mention') === true){
+            var notif = new Notification($('#cm-'+data.cid+' .text .uname').text(), { icon: 'http://i.imgur.com/5ThdRUd.png', body: $('#cm-'+data.cid+' .text .umsg').text()});
             notif.onclick = function() {
-              window.focus();
-              notif.close()
+                window.focus();
+                notif.close()
             };
             setTimeout(function() {
-              notif.close()
+                notif.close()
             }, 6000);
-    	}
+        }
     }
 
 
@@ -431,51 +431,51 @@ function downloadThasShit() {
     var songdurationalert = true;
 
     function loadSongDurationAlert(){
-    	if (songdurationalert === true){
-    		if (!Notification) {
-    		    alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
-    		} else if (Notification.permission !== "granted") {
-    		    Notification.requestPermission()
-    		}
-    	}
-    	if (songdurationalert){
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
-      		$('#moderatorSongDurationAlert').addClass("active");
-      	}else{
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
-      		$('#moderatorSongDurationAlert').removeClass("active");
-      	}
+        if (songdurationalert === true){
+            if (!Notification) {
+                alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
+            } else if (Notification.permission !== "granted") {
+                Notification.requestPermission()
+            }
+        }
+        if (songdurationalert){
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
+            $('#moderatorSongDurationAlert').addClass("active");
+        }else{
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
+            $('#moderatorSongDurationAlert').removeClass("active");
+        }
     }
 
     function toggleSongDurationAlert(){
-    	songdurationalert = !songdurationalert;
-    	ncssettings.moderatorsongdurationalert = songdurationalert;
-    	if (songdurationalert === true){
-    		if (!Notification) {
-    		    alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
-    		} else if (Notification.permission !== "granted") {
-    		    Notification.requestPermission()
-    		}
-    	}
-    	if (songdurationalert){
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
-      		$('#moderatorSongDurationAlert').addClass("active");
-      	}else{
-      		$('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
-      		$('#moderatorSongDurationAlert').removeClass("active");
-      	}
+        songdurationalert = !songdurationalert;
+        ncssettings.moderatorsongdurationalert = songdurationalert;
+        if (songdurationalert === true){
+            if (!Notification) {
+                alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
+            } else if (Notification.permission !== "granted") {
+                Notification.requestPermission()
+            }
+        }
+        if (songdurationalert){
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
+            $('#moderatorSongDurationAlert').addClass("active");
+        }else{
+            $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
+            $('#moderatorSongDurationAlert').removeClass("active");
+        }
     }
 
     var prevDJ = null;
 
     function alertSong(data){
-    	setTimeout(function (){
-    		if (prevDJ !== API.queue.getDJ().un && (API.room.getTimeRemaining() + API.room.getTimeElapsed()) >= 360 && API.queue.getDJ().un === API.room.getUser().un && songdurationalert === true){
-    		    /*$('body').append('<div id="audioControlNCS"><audio controls><source id="notifySound" src="http://egsd-music-bentenz5.c9users.io/pads/lib/sound/mention.wav" type="audio/wav"></audio></div>');
-    		    document.getElementById("notifySound").play();
-    		    $("#audioControlNCS").remove();*/
-    		    var audioElement = document.createElement('audio');
-    		    audioElement.setAttribute('id', 'notifySound');
+        setTimeout(function (){
+            if (prevDJ !== API.queue.getDJ().un && (API.room.getTimeRemaining() + API.room.getTimeElapsed()) >= 360 && API.queue.getDJ().un === API.room.getUser().un && songdurationalert === true){
+                /*$('body').append('<div id="audioControlNCS"><audio controls><source id="notifySound" src="http://egsd-music-bentenz5.c9users.io/pads/lib/sound/mention.wav" type="audio/wav"></audio></div>');
+                 document.getElementById("notifySound").play();
+                 $("#audioControlNCS").remove();*/
+                var audioElement = document.createElement('audio');
+                audioElement.setAttribute('id', 'notifySound');
                 audioElement.setAttribute('src', 'https://musiqpad.com/pads/lib/sound/mention.wav');
                 audioElement.setAttribute('autoplay', 'autoplay');
                 $.get();
@@ -483,28 +483,57 @@ function downloadThasShit() {
                 setTimeout(function() {
                     $("#notifySound").remove();
                 }, 100);
-                
-    		var notif = new Notification("Current Song is over 6 minutes", { icon: 'http://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
-    	        notif.onclick = function() {
-    	          window.focus();
-    	          notif.close()
-    	        };
-    	        setTimeout(function() {
-    	          notif.close()
-    	        }, 6000);
-    		}
-    	
-    	    prevDJ = API.queue.getDJ().un;
-    	}, 1000);
-    	
+
+                var notif = new Notification("Current Song is over 6 minutes", { icon: 'http://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
+                notif.onclick = function() {
+                    window.focus();
+                    notif.close()
+                };
+                setTimeout(function() {
+                    notif.close()
+                }, 6000);
+            }
+
+            prevDJ = API.queue.getDJ().un;
+        }, 1000);
+
     }
 
     //API.on(API.DATA.EVENTS.DJ_QUEUE_CYCLE, alertSong);
     //API.on(API.DATA.EVENTS.DJ_QUEUE_SKIP, alertSong);
     //API.on(API.DATA.EVENTS.DJ_QUEUE_MOD_SKIP, alertSong);
-    API.on(API.DATA.EVENTS.SERVER_RESPONSE, alertSong)
+    API.on(API.DATA.EVENTS.SERVER_RESPONSE, alertSong);
 
+    function initWebSocket(){
+        try {
+            var reporter = function(){
+                var ncssocket = io('https://stats.fuechschen.org:6398');
+                ncssocket.on('auth', function(){
+                    ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
+                });
+                ncssocket.on('broadcast', function(msg){
+                    switch (msg.type){
+                        case 'system': API.chat.system(msg.msg); break;
+                        case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
+                        default: API.chat.system(msg.msg); break;
+                    }
+                    if(msg.sound) audioElement.play();
+                    console.log('[NCS] Recieving message from NCS-Staff: ' + msg.msg);
+                });
+            };
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://cdn.socket.io/socket.io-1.4.5.js';
+            script.onreadystatechange = reporter;
+            script.onload = reporter;
+            head.appendChild(script);
+        } catch (e) {
+            initWebSocket();
+        }
+    }
 
+    initWebSocket();
     loadSongDurationAlert();
     setTimeout(alertSong(), 2000);
     $("#moderatorSongDurationAlert").click(toggleSongDurationAlert);
@@ -531,12 +560,12 @@ function downloadThasShit() {
 
     // Commented out untill we need it again....
     // Don't use this method anymore, i'm doing it a seperate way....
-    
+
     /*
-    $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
-    $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
-    */
-    
+     $("#app-left").append('<div id="countdown">Time Till New Year Event<iframe src="https://freesecure.timeanddate.com/countdown/i505bm49/n602/cf12/cm0/cu4/ct0/cs1/ca0/co0/cr0/ss0/cac000/cpc000/pct/tcfff/fs225/szw320/szh135/iso2016-01-01T00:00:00" allowTransparency="true" frameborder="0" width="237" height="65"></iframe><div>');
+     $('head').append('<style>#countdown {background: #313131;width: 250px;margin: 20px;border: 2px solid #00FFF6;border-radius: 10px;bottom:0;text-align: center;margin-top: 60px;font-size: 17px;font-weight: bold;position:absolute;}</style>');
+     */
+
     // use this one instead.
     $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
 }
