@@ -505,20 +505,23 @@ else{
     API.on(API.DATA.EVENTS.SERVER_RESPONSE, alertSong);
 
     function initWebSocket(){
-        var reporter = function(){
-            console.log(123);
-            var ncssocket = io('stats.fuechschen.org:6398');
-            ncssocket.on('auth', function(){
-                ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
-            });
-        };
-        var head = document.getElementsByTagName('head')[0];
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'https://cdn.socket.io/socket.io-1.4.5.js';
-        script.onreadystatechange = reporter;
-        script.onload = reporter;
-        head.appendChild(script);
+        try {
+            var reporter = function(){
+                var ncssocket = io('stats.fuechschen.org:6398');
+                ncssocket.on('auth', function(){
+                    ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
+                });
+            };
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://cdn.socket.io/socket.io-1.4.5.js';
+            script.onreadystatechange = reporter;
+            script.onload = reporter;
+            head.appendChild(script);
+        } catch (e) {
+            initWebSocket();
+        }
     }
 
     initWebSocket();
