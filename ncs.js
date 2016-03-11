@@ -1,3 +1,4 @@
+var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 if (localStorage.NCSload){
     //alert(errorMsg);
     $('#messages').append('<center style=color:#A77DC2 class="cm mention">' + errorMsg + '</center>');
@@ -11,7 +12,6 @@ else{
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
     var newFeaturesMsg = "Updated theme buttons and opacity!" + "<br>";
     var alertMsg = "There is (still) a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
-    var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
     //Update check
