@@ -318,7 +318,6 @@ input#background-input {
 }
 
 #countDownFrame {
-    position: relative;
-    bottom: 18px;
-}
+    position: relative !important;
+    bottom: 18px !important;
 }
