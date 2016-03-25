@@ -567,7 +567,7 @@ else{
      */
 
     // use this one instead.
-    $.getScript('https://ncs-musiqpad-bentenz5.c9users.io/ncs_test/countdown_timer.js')
+    $.getScript('https://pad.electricgaming.ga/ext/scripts/countdown_timer.js')
 }
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
