@@ -316,3 +316,9 @@ input#background-input {
     animation: fadein 0.25s;
     word-wrap: break-word;
 }
+
+#countDownFrame {
+    position: relative;
+    bottom: 18px;
+}
+}
