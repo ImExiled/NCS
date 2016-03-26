@@ -8,10 +8,10 @@ else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
     var version = "0.1.9";
-    var versionMsg = "An attempt at fixing the false-load bug.";
+    var versionMsg = "Finally, Back in Development!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "Updated theme buttons and opacity!" + "<br>";
+    var newFeaturesMsg = "An attempt at fixing the false load bug" + "<br>";
     var alertMsg = "There is (still) a small bug where the popup for the Song downloader may get blocked on some clients. You will have to allow the popup and then click the link it shows for your first download if you get this error.<br>";
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
