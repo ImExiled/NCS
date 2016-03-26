@@ -1,6 +1,6 @@
 var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 //var NCSload = "";
-if (typeof NCSload !== 'undefined' === true){
+if (typeof NCSload !== 'undefined'){
     //alert(errorMsg);
     $('#messages').append('<center style=color:#A77DC2 class="cm mention">' + errorMsg + '</center>');
 }
