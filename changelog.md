@@ -1,5 +1,8 @@
 # NCS Change Logs (latest at top)
 
+#### 0.1.9
+* An attempt at fixing the false-load bug.
+
 #### 0.1.8
 * Updated the theme to be more liked by adding better buttons, message borders, and fixing the horrible opacity levels.
 
