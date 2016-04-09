@@ -4,6 +4,19 @@
 
 /* other */
 
+/* Chat Edits */
+#app-right,#msg-in {
+    /* background-image: url("http://i.imgur.com/XJrUeIy.png"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color:rgba(0, 0, 0, 0.5);
+    background-size: 255px;
+}
+
+#msg-in {
+    opacity: .5;
+}
+
 /* Logo */
 .playback {
     background-image: url('https://i.imgur.com/1YYbTUT.png') !important;
