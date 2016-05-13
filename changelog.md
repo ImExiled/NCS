@@ -1,6 +1,9 @@
 # NCS Change Logs (latest at top)
 
 #### 0.1.9
+* Fixed the NCS menu. (Used to not be able to be clicked)
+
+#### 0.1.9
 * An attempt at fixing the false-load bug.
 
 #### 0.1.8
