@@ -91,10 +91,10 @@ else{
 
     var NCS = (function() {
         var models = {
-            'tab': `<div data-ng-click="prop.c = 4" data-ng-class="{\'active\' : prop.c == 4}" class="tab ncs-tab">
+            'tab': `<div data-ng-click="prop.c = 31" data-ng-class="{\'active\' : prop.c == 31}" class="tab ncs-tab">
                     <span class="icon-info">NCS</span>
                 </div>`,
-            'back': `<div data-ng-show="(prop.c == 4)" class="ng-hide" id="ncs-back">
+            'back': `<div data-ng-show="(prop.c == 31)" class="ng-hide" id="ncs-back">
                     <div class="items">
                         <div id="header-settings" class="mheader">NCS Settings</div>
                         <div id="header-general" class="header">General Functionality</div>
