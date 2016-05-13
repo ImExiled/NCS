@@ -7,11 +7,11 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.9";
-    var versionMsg = "Finally, Back in Development!";
+    var version = "0.1.9.1";
+    var versionMsg = "Ayy its fixed!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "An attempt at fixing the false load bug" + "<br>";
+    var newFeaturesMsg = "Fixed the horrible horrible non-clickability!" + "<br>";
     var alertMsg = "";
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
