@@ -1,5 +1,8 @@
 # NCS Change Logs (latest at top)
 
+#### 0.1.9.3
+* The chat can now be hidden.
+
 #### 0.1.9.1
 * Fixed the NCS menu. (Used to not be able to be clicked)
 
