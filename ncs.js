@@ -7,12 +7,13 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.9.1";
-    var versionMsg = "Ayy its fixed!";
+    var version = "0.1.9.3";
+    var versionMsg = "Chat!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "Fixed the horrible horrible non-clickability!" + "<br>";
+    var newFeaturesMsg = "The chat can now be hidden!" + "<br>";
     var alertMsg = "";
+    hiddenChat = false;
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
     //Update check
@@ -91,7 +92,7 @@ else{
 
     var NCS = (function() {
         var models = {
-            'tab': `<div data-ng-click="prop.c = 31" data-ng-class="{\'active\' : prop.c == 31}" class="tab ncs-tab">
+            'tab': `<div id="NCSMenu" data-ng-click="prop.c = 31" data-ng-class="{\'active\' : prop.c == 31}" class="tab ncs-tab">
                     <span class="icon-info">NCS</span>
                 </div>`,
             'back': `<div data-ng-show="(prop.c == 31)" class="ng-hide" id="ncs-back">
@@ -115,9 +116,9 @@ else{
                         <div id="custom-mention-sounds" class="item editable custom-mention-sounds">Custom Mention Sounds</div>
                         <div id="header-miscellaneous" class="header">Miscellaneous</div>
                         <a href="javascript:downloadThasShit();" style="text-decoration: none;"><div id="NCSDownload" class="item ncs-mp3">Download Current Song as MP3</div></a>
+                        <div id="hideChat" class="item hideChat" onclick="hideChat();">Hide Chat</div>
                         <a href="javascript:updateCheck();"><div id="update-check" class="item update-check">Check for Updates</div></a>
                         <div id="issue-reporter" class="item issue-reporter"><a id="NCSIssues" href="https://github.com/bentenz5/NCS/issues" target="_blank">Found an issue!? Report it here!</a></div>
-                        
                     </div>
                 </div>`
         };
@@ -570,6 +571,25 @@ else{
 
     // use this one instead.
     $.getScript('https://pad.electricgaming.ga/ext/scripts/countdown_timer.js')
+}
+
+function hideChat() {
+  if(hiddenChat === true) {
+    $('#app-right').css('visibility', 'visible');
+    $('#chat').css('visibility', 'visible');
+    $('.playback').removeClass('centerPlayer');
+    $('#hideChat').removeClass('active');
+    $('#ShowChatBtnCtrl').remove();
+    hiddenChat = false;
+  } else {
+    $('#app-right').css('visibility', 'hidden');
+    $('#chat').css('visibility', 'hidden');
+    $('.playback').addClass('centerPlayer');
+    $('#hideChat').addClass('active');
+    $('#NCSMenu').css('visibility', 'visible');
+    $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
+    hiddenChat = true;
+  }
 }
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
