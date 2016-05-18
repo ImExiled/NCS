@@ -2,23 +2,31 @@
 
 /* animation stuff */
 
-@-webkit-keyframes changeShadow{
-  from {
-    box-shadow: 0px 0px 20px #198000;
-  }
+@-webkit-keyframes changeShadow {
+  	0% {
+    	box-shadow: 0px 0px 30px #198000;
+  	}
 
-  to {
-    box-shadow: 0px 0px 30px #244270;
-  }
-}
-@-moz-keyframes changeShadow{
-  from {
-    box-shadow: 0px 0px 20px #198000;
-  }
+  	50% {
+    	box-shadow: 0px 0px 30px #244270;
+  	}
+  
+  	100% {
+    	box-shadow: 0px 0px 30px #88306c;
+	}
+}  
+@-moz-keyframes changeShadow {
+  	0% {
+    	box-shadow: 0px 0px 30px #198000;
+  	}
 
-  to {
-    box-shadow: 0px 0px 30px #244270;
-  }
+  	50% {
+    	box-shadow: 0px 0px 30px #244270;
+  	}
+  
+  	100% {
+    	box-shadow: 0px 0px 30px #88306c;
+	}
 }
 
 /* other */
@@ -138,7 +146,7 @@
 }
 
 #room-bg {
-    background-image: url('https://i.imgur.com/zedBGq7.png0') !important;
+    background-image: url('http://i.imgur.com/R1f0EJS.jpg') !important;
 }
 
 /* Rating Buttons */
