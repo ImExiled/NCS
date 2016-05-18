@@ -2,6 +2,12 @@
     text-decoration: none;
 }
 
+.centerPlayer {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+}
+
 #countdown.hidden {
   background: #313131;
   width: 250px;
