@@ -11,7 +11,7 @@ else{
     var versionMsg = "Chat!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "The chat can now be hidden!" + "<br>";
+    var newFeaturesMsg = "You can now hide the chat. This adds two buttons to the video controls which are fairly self explanatory." + "<br>";
     var alertMsg = "";
     hiddenChat = false;
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
@@ -580,6 +580,7 @@ function hideChat() {
     $('.playback').removeClass('centerPlayer');
     $('#hideChat').removeClass('active');
     $('#ShowChatBtnCtrl').remove();
+    $('#Download').remove();
     hiddenChat = false;
   } else {
     $('#app-right').css('visibility', 'hidden');
@@ -587,6 +588,7 @@ function hideChat() {
     $('.playback').addClass('centerPlayer');
     $('#hideChat').addClass('active');
     $('#NCSMenu').css('visibility', 'visible');
+    $('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
     $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
     hiddenChat = true;
   }
