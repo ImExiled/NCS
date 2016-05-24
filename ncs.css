@@ -12,6 +12,10 @@
     width: 100% !important;
 }
 
+.mdi-account-multiple-outline {
+    visibility: hidden;
+}
+
 #countdown.hidden {
   background: #313131;
   width: 250px;
