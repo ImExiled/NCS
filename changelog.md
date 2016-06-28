@@ -1,5 +1,8 @@
 # NCS Change Logs (latest at top)
 
+#### 0.1.9.6
+* Changed the control download button (by the like button) to always be there, rather then just when chat is hidden.
+
 #### 0.1.9.3
 * The chat can now be hidden. Hiding chat adds two buttons to the controls at the bottom of the video. A Download Track button and a Show Chat button.
 
