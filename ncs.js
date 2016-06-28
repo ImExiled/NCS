@@ -529,7 +529,10 @@ else {
                 console.log('[NCS] WebSocket-Connection failed.');
                 ncssocket.close();
                 ncssockettries = ncssockettries + 1;
-                initWebSocket();
+                setTimeout(initWebSocket,10*1000);
+            };
+            ncssocket.onclose = function () {
+              setTimeout(initWebSocket, 10*1000);
             };
             ncssocket.onopen = function () {
                 ncssockettries = 0;
@@ -563,14 +566,14 @@ else {
                             default:break;
                         }
                     } catch (e) {
-                        console.log('[NCS] Recieved invalid JSON');
+                        console.log('[NCS] Received invalid JSON');
                     }
                 }
             };
         } catch (e) {
             if (ncssockettries > 4) console.log('[NCS] WebSocket-Connection failed.');
             else {
-                initWebSocket();
+                setTimeout(initWebSocket,10*1000);
                 ncssockettries = ncssockettries + 1;
             }
         }
