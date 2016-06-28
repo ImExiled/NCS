@@ -1,10 +1,10 @@
 var errorMsg = "It seems that you are already running NCS. If that is not the case please refresh and try again. If it still doesn't work, please report this on github.<br>";
 //var NCSload = "";
-if (typeof NCSload !== 'undefined'){
+if (typeof NCSload !== 'undefined') {
     //alert(errorMsg);
     $('#messages').append('<center style=color:#A77DC2 class="cm mention">' + errorMsg + '</center>');
 }
-else{
+else {
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
     var version = "0.1.9.6";
@@ -17,21 +17,22 @@ else{
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
     //Update check
-    function updateCheck(){
+    function updateCheck () {
         $.ajax({
             type: "GET",
             url: "https://rawgit.com/bentenz5/NCS/master/last.json"
-        }).done(function(data){
-            if(data.version != version){
-                $('#messages').append('<center style=color:#A77DC2 class="cm broadcast"><div class="mdi mdi-alert msg"></div> NCS has updated! Refresh your page to get the latest update!<br> <a href="'+data.changelog+'" target="_blank">Changelog</a> | New version : '+data.version+'</center>');
+        }).done(function (data) {
+            if (data.version != version) {
+                $('#messages').append('<center style=color:#A77DC2 class="cm broadcast"><div class="mdi mdi-alert msg"></div> NCS has updated! Refresh your page to get the latest update!<br> <a href="' + data.changelog + '" target="_blank">Changelog</a> | New version : ' + data.version + '</center>');
                 console.log("[NCS] Update available");
-            }else{
+            } else {
                 console.log("[NCS] Up to date!");
             }
         });
     }
+
     updateCheck();
-    var updateInterval = setInterval(function(){
+    var updateInterval = setInterval(function () {
         updateCheck();
     }, 600000);
 
@@ -51,8 +52,8 @@ else{
 
     // Moved vars to top.
 
-    API.on(API.DATA.EVENTS.CHAT,afk);
-    API.on(API.DATA.EVENTS.ADVANCE,songAdvance);
+    API.on(API.DATA.EVENTS.CHAT, afk);
+    API.on(API.DATA.EVENTS.ADVANCE, songAdvance);
 
     var ncssettings = $.extend({
         autolike: false,
@@ -67,7 +68,7 @@ else{
 
     console.info((JSON.parse(localStorage.getItem('ncs-settings')) || {}));
 
-    window.onbeforeunload = function(e) {
+    window.onbeforeunload = function (e) {
         localStorage.setItem('ncs-settings', JSON.stringify(ncssettings));
     };
 
@@ -78,19 +79,19 @@ else{
     });
 
 // Musiqpad Video MP3 Downloader
-    function grabVidId() {
+    function grabVidId () {
         var playersrc = API.room.getMedia().cid;
         return playersrc;
     }
 
 // Download thas shit!
-    function downloadThasShit() {
+    function downloadThasShit () {
         //var playersrc = grabVidId();
         window.open("http://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
         console.log("[NCS] Downloaded Video!");
     }
 
-    var NCS = (function() {
+    var NCS = (function () {
         var models = {
             'tab': `<div id="NCSMenu" data-ng-click="prop.c = 31" data-ng-class="{\'active\' : prop.c == 31}" class="tab ncs-tab">
                     <span class="icon-info">NCS</span>
@@ -134,11 +135,11 @@ else{
 
         // Put functions and shit here damn it!
 
-        this.elements = new (function() {
+        this.elements = new (function () {
 
         });
 
-        this.hideVideo = function() {
+        this.hideVideo = function () {
 
         }
         back.find('.item .hide-video').on('click', this.hideVideo);
@@ -146,7 +147,7 @@ else{
 
         // Apply shit to the scope
         var scope = angular.element('.tray > *').scope();
-        $('body').injector().invoke(function($compile, $rootScope) {
+        $('body').injector().invoke(function ($compile, $rootScope) {
             $compile($('.dash .tray .ncs-tab'))(scope);
             $compile($('#app-right > #ncs-back'))(scope);
             scope.$apply();
@@ -157,22 +158,23 @@ else{
     $('#app-left').prepend('<span id="loli-counter">Loli count: 0</span>');
 
     var lolis = 0;
-    API.on('chat', function(chat) {
+    API.on('chat', function (chat) {
         lolis += (chat.message.match(/loli/gi) || []).length;
         $('#loli-counter').text('Loli count: ' + lolis);
     });
 
 
     //Functions
-    function afk(data){
-        if (setafk === true && cd === false && $('#cm-'+data.cid).hasClass('mention') === true){
-            API.chat.send('[@'+$('#cm-'+data.cid+' .text .uname').text()+"] " + afkmsg);
+    function afk (data) {
+        if (setafk === true && cd === false && $('#cm-' + data.cid).hasClass('mention') === true) {
+            API.chat.send('[@' + $('#cm-' + data.cid + ' .text .uname').text() + "] " + afkmsg);
             cooldown();
         }
     }
 
     var prevafkmsg;
-    function saveResponse() {
+
+    function saveResponse () {
         prevafkmsg = afkmsg;
         afkmsg = $('#afk-response').val();
         $('#afk-response').val('');
@@ -182,27 +184,29 @@ else{
         hideNotif();
     }
 
-    function cooldown(){
+    function cooldown () {
         cd = true;
-        setTimeout(function(){cd = false;},10000);
+        setTimeout(function () {
+            cd = false;
+        }, 10000);
     }
 
-    function runafk(){
-        if(setafk === true){ //AFK OFF
+    function runafk () {
+        if (setafk === true) { //AFK OFF
             $('#afk-responder').removeClass('active');
             $('#msg-in').prop('disabled', false);
-            $('#msg-in').attr("placeholder","Type a message and hit enter.");
+            $('#msg-in').attr("placeholder", "Type a message and hit enter.");
             setafk = false;
         }
-        else if(setafk === false){ //AFK ON
+        else if (setafk === false) { //AFK ON
             $('#afk-responder').addClass('active');
             $('#msg-in').prop('disabled', true);
-            $('#msg-in').attr("placeholder","Disable your AFK Responder to chat!");
+            $('#msg-in').attr("placeholder", "Disable your AFK Responder to chat!");
             setafk = true;
         }
     }
 
-    function NCSafkResponseChanger(){
+    function NCSafkResponseChanger () {
         showNotif('notif-afk-message');
     }
 
@@ -210,10 +214,10 @@ else{
         ncssettings.autolike = false;
         runautolike();
     }
-    function runautolike() {
+    function runautolike () {
         if (ncssettings.autolike === false) {
             $('#auto-like').addClass('active');
-            if(!$('.btn-upvote').hasClass('active')) {
+            if (!$('.btn-upvote').hasClass('active')) {
                 $('.btn-upvote').click();
             }
             ncssettings.autolike = true;
@@ -224,7 +228,7 @@ else{
         }
     }
 
-    function downloadMP3() {
+    function downloadMP3 () {
         $.getScript("https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/dl_mp3.js");
     }
 
@@ -232,7 +236,7 @@ else{
         ncssettings.autojoin = false;
         runautojoin();
     }
-    function runautojoin() {
+    function runautojoin () {
         if (ncssettings.autojoin === false) {
             if (API.queue.getInfo().cycle === false) {
                 API.queue.join();
@@ -252,7 +256,7 @@ else{
     }
 
 
-    function songAdvance() {
+    function songAdvance () {
         if (!ncssettings.autolike) return;
         if ($('.btn-upvote').hasClass('active')) return;
         $('.btn-upvote').click();
@@ -262,7 +266,7 @@ else{
     }
 
     $('#room-bg').append('<div id="newbg"></div>');
-    function changeBackground() {
+    function changeBackground () {
         showNotif('notif-background');
         $('#background-input').val(ncssettings.backgroundurl);
     }
@@ -271,15 +275,15 @@ else{
         ncssettings.cbackground = false;
         applyBackground();
     }
-    function applyBackground() {
+    function applyBackground () {
         if (ncssettings.cbackground === false) {
             $('#custom-background').addClass('active');
-            $('#newbg').css("background-image"," url('" + ncssettings.backgroundurl + "')");
+            $('#newbg').css("background-image", " url('" + ncssettings.backgroundurl + "')");
             ncssettings.cbackground = true;
         }
         else {
             $('#custom-background').removeClass('active');
-            $('#newbg').css("background-image","");
+            $('#newbg').css("background-image", "");
             ncssettings.cbackground = false;
         }
     }
@@ -287,7 +291,7 @@ else{
     // Theme Shit
     ncssettings.customThemeEnabled = false;
 
-    function ncsThemeShit() {
+    function ncsThemeShit () {
         if (ncssettings.customThemeEnabled === false) {
             $('#custom-theme').addClass('active');
             $('head').append('<link id="NCSTheme" rel="stylesheet" href="https://rawgit.com/bentenz5/NCS/master/NCSTheme.css" type="text/css" />');
@@ -301,19 +305,21 @@ else{
     }
 
     //ETA
-    function readable(total) {
+    function readable (total) {
         var hours = ~~(total / 3600);
         var minutes = (~~(total / 60)) % 60;
         var seconds = total % 60;
         return normalize(hours) + ':' + normalize(minutes) + ':' + normalize(seconds);
     }
-    function normalize(number) {
+
+    function normalize (number) {
         var addition = (number < 10
             ? '0'
             : '');
         return addition + number;
     }
-    var ETAInterval = setInterval(function() {
+
+    var ETAInterval = setInterval(function () {
         var position = API.queue.getPosition()
         position = (position < 0) ? API.queue.getDJs().length : position;
         var eta = ~~((position * (3.5 * 60)) + (API.room.getTimeRemaining()));
@@ -326,7 +332,7 @@ else{
         ncssettings.autojoin = false;
         runeta();
     }
-    function runeta() {
+    function runeta () {
         if (ncssettings.eta === false) {
             $('#eta').addClass('active');
             ncssettings.eta = true;
@@ -338,17 +344,17 @@ else{
         }
     }
 
-    function applyNCStheme() {
+    function applyNCStheme () {
 
     }
 
-    function saveResponse() {
+    function saveResponse () {
         afkmsg = $('#afk-response').val();
         $('#afk-response').val('');
         hideNotif();
     }
 
-    function saveBackground() {
+    function saveBackground () {
         ncssettings.backgroundurl = $('#background-input').val();
         applyBackground();
         hideNotif();
@@ -356,12 +362,13 @@ else{
 
 
     // Hide and Show functions for notif's. name = ID of notif
-    function showNotif(name) {
+    function showNotif (name) {
         $('#notifications').addClass('show-notif');
         $('.notif').removeClass('show-notif');
         $('#' + name).addClass('show-notif');
     }
-    function hideNotif() {
+
+    function hideNotif () {
         $('#notifications').removeClass('show-notif');
         $('.notif').removeClass('show-notif');
     }
@@ -371,56 +378,58 @@ else{
 
     var notifcationsEnabled = ncssettings.desktopnotifications;
 
-    function loadDesktopNotifs(){
-        if (notifcationsEnabled === true){
+    function loadDesktopNotifs () {
+        if (notifcationsEnabled === true) {
             if (!Notification) {
                 alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
             } else if (Notification.permission !== "granted") {
                 Notification.requestPermission()
             }
         }
-        if (notifcationsEnabled){
+        if (notifcationsEnabled) {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
             $('#desktop-notifs').addClass("active");
-        }else{
+        } else {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
             $('#desktop-notifs').removeClass("active");
         }
     }
 
-    function toggleDesktopNotifications(){
+    function toggleDesktopNotifications () {
         notifcationsEnabled = !notifcationsEnabled;
         ncssettings.desktopnotifications = notifcationsEnabled;
-        if (notifcationsEnabled === true){
+        if (notifcationsEnabled === true) {
             if (!Notification) {
                 alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.')
             } else if (Notification.permission !== "granted") {
                 Notification.requestPermission()
             }
         }
-        if (notifcationsEnabled){
+        if (notifcationsEnabled) {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Desktop Notifications</center>');
             $('#desktop-notifs').addClass("active");
-        }else{
+        } else {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Desktop Notifications</center>');
             $('#desktop-notifs').removeClass("active");
         }
     }
 
 
-
-    setTimeout(function(){
+    setTimeout(function () {
         loadDesktopNotifs();
     }, 1000);
     API.on(API.DATA.EVENTS.CHAT, showNotification);
-    function showNotification(data){
-        if (notifcationsEnabled === true && $('#cm-'+data.cid).hasClass('mention') === true){
-            var notif = new Notification($('#cm-'+data.cid+' .text .uname').text(), { icon: 'http://i.imgur.com/5ThdRUd.png', body: $('#cm-'+data.cid+' .text .umsg').text()});
-            notif.onclick = function() {
+    function showNotification (data) {
+        if (notifcationsEnabled === true && $('#cm-' + data.cid).hasClass('mention') === true) {
+            var notif = new Notification($('#cm-' + data.cid + ' .text .uname').text(), {
+                icon: 'http://i.imgur.com/5ThdRUd.png',
+                body: $('#cm-' + data.cid + ' .text .umsg').text()
+            });
+            notif.onclick = function () {
                 window.focus();
                 notif.close()
             };
-            setTimeout(function() {
+            setTimeout(function () {
                 notif.close()
             }, 6000);
         }
@@ -433,37 +442,37 @@ else{
 
     var songdurationalert = true;
 
-    function loadSongDurationAlert(){
-        if (songdurationalert === true){
+    function loadSongDurationAlert () {
+        if (songdurationalert === true) {
             if (!Notification) {
                 alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
             } else if (Notification.permission !== "granted") {
                 Notification.requestPermission()
             }
         }
-        if (songdurationalert){
+        if (songdurationalert) {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
             $('#moderatorSongDurationAlert').addClass("active");
-        }else{
+        } else {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
             $('#moderatorSongDurationAlert').removeClass("active");
         }
     }
 
-    function toggleSongDurationAlert(){
+    function toggleSongDurationAlert () {
         songdurationalert = !songdurationalert;
         ncssettings.moderatorsongdurationalert = songdurationalert;
-        if (songdurationalert === true){
+        if (songdurationalert === true) {
             if (!Notification) {
                 alert('[NCS] You do not have notifications and therefore this option is not available. Please use a modern version of Chrome, Firefox, Opera or Firefox.');
             } else if (Notification.permission !== "granted") {
                 Notification.requestPermission()
             }
         }
-        if (songdurationalert){
+        if (songdurationalert) {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Enabled Song Duration Alerts</center>');
             $('#moderatorSongDurationAlert').addClass("active");
-        }else{
+        } else {
             $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">Disabled Song Duration Alerts</center>');
             $('#moderatorSongDurationAlert').removeClass("active");
         }
@@ -471,9 +480,9 @@ else{
 
     var prevDJ = null;
 
-    function alertSong(data){
-        setTimeout(function (){
-            if (prevDJ !== API.queue.getDJ().un && (API.room.getTimeRemaining() + API.room.getTimeElapsed()) >= 360 && API.queue.getDJ().un === API.room.getUser().un && songdurationalert === true){
+    function alertSong (data) {
+        setTimeout(function () {
+            if (prevDJ !== API.queue.getDJ().un && (API.room.getTimeRemaining() + API.room.getTimeElapsed()) >= 360 && API.queue.getDJ().un === API.room.getUser().un && songdurationalert === true) {
                 /*$('body').append('<div id="audioControlNCS"><audio controls><source id="notifySound" src="http://egsd-music-bentenz5.c9users.io/pads/lib/sound/mention.wav" type="audio/wav"></audio></div>');
                  document.getElementById("notifySound").play();
                  $("#audioControlNCS").remove();*/
@@ -483,16 +492,19 @@ else{
                 audioElement.setAttribute('autoplay', 'autoplay');
                 $.get();
                 audioElement.play();
-                setTimeout(function() {
+                setTimeout(function () {
                     $("#notifySound").remove();
                 }, 100);
 
-                var notif = new Notification("Current Song is over 6 minutes", { icon: 'http://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
-                notif.onclick = function() {
+                var notif = new Notification("Current Song is over 6 minutes", {
+                    icon: 'http://i.imgur.com/5ThdRUd.png',
+                    body: "The current song playing is over 6 minutes!"
+                });
+                notif.onclick = function () {
                     window.focus();
                     notif.close()
                 };
-                setTimeout(function() {
+                setTimeout(function () {
                     notif.close()
                 }, 6000);
             }
@@ -507,32 +519,60 @@ else{
     //API.on(API.DATA.EVENTS.DJ_QUEUE_MOD_SKIP, alertSong);
     API.on(API.DATA.EVENTS.SERVER_RESPONSE, alertSong);
 
-    function initWebSocket(){
+    var ncssocket = null;
+    var ncssockettries = 0;
+
+    function initWebSocket () {
         try {
-            var reporter = function(){
-                var ncssocket = io('https://socket.ncs.fuechschen.org');
-                ncssocket.on('auth', function(){
-                    ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
-                });
-                ncssocket.on('broadcast', function(msg){
-                    switch (msg.type){
-                        case 'system': API.chat.system(msg.msg); break;
-                        case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
-                        default: API.chat.system(msg.msg); break;
-                    }
-                    if(msg.sound) audioElement.play();
-                    console.log('[NCS] Recieving message from NCS-Staff: ' + msg.msg);
-                });
+            ncssocket = new WebSocket('wss://ncs.fuechschen.org');
+            ncssocket.onerror = function () {
+                console.log('[NCS] WebSocket-Connection failed.');
+                ncssocket.close();
+                ncssockettries = ncssockettries + 1;
+                initWebSocket();
             };
-            var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://cdn.socket.io/socket.io-1.4.5.js';
-            script.onreadystatechange = reporter;
-            script.onload = reporter;
-            head.appendChild(script);
+            ncssocket.onopen = function () {
+                ncssockettries = 0;
+            };
+            ncssocket.onmessage = function (msg) {
+                if (msg.data !== 'h') {
+                    try {
+                        var pmsg = JSON.parse(msg.data);
+                        switch (pmsg.t) {
+                            case 'auth':
+                                ncssocket.send(JSON.stringify({
+                                    t: 'auth',
+                                    d: {room: API.room.getInfo(), user: API.room.getUser()}
+                                }));
+                                break;
+                            case 'broadcast':
+                                switch (pmsg.d.t){
+                                    case 'system':
+                                        API.chat.system(pmsg.d.m);
+                                        break;
+                                    case 'ncs_msg':
+                                        $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">' + pmsg.d.m + '</center>');
+                                        break;
+                                    default:
+                                        API.chat.system(pmsg.d.m);
+                                        break;
+                                }
+                                if (pmsg.d.a) audioElement.play();
+                                console.log('[NCS] Recieving message from NCS-Staff: ' + pmsg.d.m);
+                                break;
+                            default:break;
+                        }
+                    } catch (e) {
+                        console.log('[NCS] Recieved invalid JSON');
+                    }
+                }
+            };
         } catch (e) {
-            initWebSocket();
+            if (ncssockettries > 4) console.log('[NCS] WebSocket-Connection failed.');
+            else {
+                initWebSocket();
+                ncssockettries = ncssockettries + 1;
+            }
         }
     }
 
@@ -551,7 +591,12 @@ else{
 
     // Clicks
     $("#afk-responder").click(runafk);
-    $('#NCSImporter').click( function() { (function(){$.getScript('https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/importer.js')}()); return false; } );
+    $('#NCSImporter').click(function () {
+        (function () {
+            $.getScript('https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/importer.js')
+        }());
+        return false;
+    });
     //$('#afk-responder-msg').click( function() { (function(){$.getScript('https://musiqpad-ncs-bentenz5.c9users.io/musiqpad_port/modules/afk-response-changer.js')}()); return false; } );
     $("#afk-message").click(NCSafkResponseChanger);
     $('#custom-background-edit').click(changeBackground)
@@ -559,7 +604,11 @@ else{
     $("#auto-join").click(runautojoin);
     $("#custom-background").click(applyBackground);
     $("#eta").click(runeta);
-    $('#notifications').click(function(e) { if (e.target === this){ hideNotif(); }});
+    $('#notifications').click(function (e) {
+        if (e.target === this) {
+            hideNotif();
+        }
+    });
 
     // Commented out untill we need it again....
     // Don't use this method anymore, i'm doing it a seperate way....
@@ -573,41 +622,41 @@ else{
     $.getScript('https://pad.electricgaming.ga/ext/scripts/countdown_timer.js')
 }
 
-function hideChat() {
-  if(hiddenChat === true) {
-    $('#app-right').css('visibility', 'visible');
-    $('#chat').css('visibility', 'visible');
-    $('.playback').removeClass('centerPlayer');
-    $('#hideChat').removeClass('active');
-    $('#ShowChatBtnCtrl').remove();
-    $('.logo-menu').removeClass('NCSlogo-menu-width');
-    hiddenChat = false;
-  } else {
-    $('#app-right').css('visibility', 'hidden');
-    $('#chat').css('visibility', 'hidden');
-    $('.playback').addClass('centerPlayer');
-    $('#hideChat').addClass('active');
-    $('#NCSMenu').css('visibility', 'visible');
-    $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
-    $('.logo-menu').addClass('NCSlogo-menu-width');
-    hiddenChat = true;
-  }
+function hideChat () {
+    if (hiddenChat === true) {
+        $('#app-right').css('visibility', 'visible');
+        $('#chat').css('visibility', 'visible');
+        $('.playback').removeClass('centerPlayer');
+        $('#hideChat').removeClass('active');
+        $('#ShowChatBtnCtrl').remove();
+        $('.logo-menu').removeClass('NCSlogo-menu-width');
+        hiddenChat = false;
+    } else {
+        $('#app-right').css('visibility', 'hidden');
+        $('#chat').css('visibility', 'hidden');
+        $('.playback').addClass('centerPlayer');
+        $('#hideChat').addClass('active');
+        $('#NCSMenu').css('visibility', 'visible');
+        $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
+        $('.logo-menu').addClass('NCSlogo-menu-width');
+        hiddenChat = true;
+    }
 }
 
 $('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
 
 // If its the NCS pad, output a special welcome message.
-if(window.location.href === "https://musiqpad.com/p/ncs") {
-  // If it is the NCS pad.
-  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
+if (window.location.href === "https://musiqpad.com/p/ncs") {
+    // If it is the NCS pad.
+    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
 } else {
-  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
+    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
 }
 
-API.on(API.DATA.EVENTS.CHAT, function(data){
+API.on(API.DATA.EVENTS.CHAT, function (data) {
     var msg = $('#cm-' + data.cid);
     var user = API.room.getUser(data.uid);
-    if(user.un === "PixelBreeze" || user.un === "CSxKING" || user.un === "Don" || user.un === "tonkku107" || user.un === "Nuvm"){
+    if (user.un === "PixelBreeze" || user.un === "CSxKING" || user.un === "Don" || user.un === "tonkku107" || user.un === "Nuvm") {
         msg.find('>svg').after('<div class="ncs-chat-bdg ncs-dev"></div>');
     }
 });
