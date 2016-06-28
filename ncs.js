@@ -596,6 +596,14 @@ function hideChat() {
 
 $('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
 
+// If its the NCS pad, output a special welcome message.
+if(window.location.href === "https://musiqpad.com/p/ncs") {
+  // If it is the NCS pad.
+  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
+} else {
+  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
+}
+
 API.on(API.DATA.EVENTS.CHAT, function(data){
     var msg = $('#cm-' + data.cid);
     var user = API.room.getUser(data.uid);
