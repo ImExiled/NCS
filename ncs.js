@@ -507,34 +507,66 @@ else{
     //API.on(API.DATA.EVENTS.DJ_QUEUE_MOD_SKIP, alertSong);
     API.on(API.DATA.EVENTS.SERVER_RESPONSE, alertSong);
 
-    function initWebSocket(){
+    var ncssocket = null;
+    var ncssockettries = 0;
+
+    function initWebSocket () {
         try {
-            var reporter = function(){
-                var ncssocket = io('https://socket.ncs.fuechschen.org');
-                ncssocket.on('auth', function(){
-                    ncssocket.emit('auth',{room: API.room.getInfo(), user: API.room.getUser()});
-                });
-                ncssocket.on('broadcast', function(msg){
-                    switch (msg.type){
-                        case 'system': API.chat.system(msg.msg); break;
-                        case 'ncs_msg': $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">'+msg.msg+'</center>'); break;
-                        default: API.chat.system(msg.msg); break;
-                    }
-                    if(msg.sound) audioElement.play();
-                    console.log('[NCS] Recieving message from NCS-Staff: ' + msg.msg);
-                });
+            ncssocket = new WebSocket('wss://ncs.fuechschen.org');
+            ncssocket.onerror = function () {
+                console.log('[NCS] WebSocket-Connection failed.');
+                ncssocket.close();
+                ncssockettries = ncssockettries + 1;
+                setTimeout(initWebSocket,10*1000);
             };
-            var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = 'https://cdn.socket.io/socket.io-1.4.5.js';
-            script.onreadystatechange = reporter;
-            script.onload = reporter;
-            head.appendChild(script);
+            ncssocket.onclose = function () {
+                setTimeout(initWebSocket, 10*1000);
+            };
+            ncssocket.onopen = function () {
+                ncssockettries = 0;
+            };
+            ncssocket.onmessage = function (msg) {
+                if (msg.data !== 'h') {
+                    try {
+                        var pmsg = JSON.parse(msg.data);
+                        switch (pmsg.t) {
+                            case 'auth':
+                                ncssocket.send(JSON.stringify({
+                                    t: 'auth',
+                                    d: {room: API.room.getInfo(), user: API.room.getUser()}
+                                }));
+                                break;
+                            case 'broadcast':
+                                switch (pmsg.d.t){
+                                    case 'system':
+                                        API.chat.system(pmsg.d.m);
+                                        break;
+                                    case 'ncs_msg':
+                                        $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">' + pmsg.d.m + '</center>');
+                                        break;
+                                    default:
+                                        API.chat.system(pmsg.d.m);
+                                        break;
+                                }
+                                if (pmsg.d.a) audioElement.play();
+                                console.log('[NCS] Recieving message from NCS-Staff: ' + pmsg.d.m);
+                                break;
+                            default:break;
+                        }
+                    } catch (e) {
+                        console.log('[NCS] Received invalid JSON');
+                    }
+                }
+            };
         } catch (e) {
-            initWebSocket();
+            if (ncssockettries > 4) console.log('[NCS] WebSocket-Connection failed.');
+            else {
+                setTimeout(initWebSocket,10*1000);
+                ncssockettries = ncssockettries + 1;
+            }
         }
     }
+
 
     initWebSocket();
     loadSongDurationAlert();
@@ -574,34 +606,34 @@ else{
 }
 
 function hideChat() {
-  if(hiddenChat === true) {
-    $('#app-right').css('visibility', 'visible');
-    $('#chat').css('visibility', 'visible');
-    $('.playback').removeClass('centerPlayer');
-    $('#hideChat').removeClass('active');
-    $('#ShowChatBtnCtrl').remove();
-    $('.logo-menu').removeClass('NCSlogo-menu-width');
-    hiddenChat = false;
-  } else {
-    $('#app-right').css('visibility', 'hidden');
-    $('#chat').css('visibility', 'hidden');
-    $('.playback').addClass('centerPlayer');
-    $('#hideChat').addClass('active');
-    $('#NCSMenu').css('visibility', 'visible');
-    $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
-    $('.logo-menu').addClass('NCSlogo-menu-width');
-    hiddenChat = true;
-  }
+    if(hiddenChat === true) {
+        $('#app-right').css('visibility', 'visible');
+        $('#chat').css('visibility', 'visible');
+        $('.playback').removeClass('centerPlayer');
+        $('#hideChat').removeClass('active');
+        $('#ShowChatBtnCtrl').remove();
+        $('.logo-menu').removeClass('NCSlogo-menu-width');
+        hiddenChat = false;
+    } else {
+        $('#app-right').css('visibility', 'hidden');
+        $('#chat').css('visibility', 'hidden');
+        $('.playback').addClass('centerPlayer');
+        $('#hideChat').addClass('active');
+        $('#NCSMenu').css('visibility', 'visible');
+        $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
+        $('.logo-menu').addClass('NCSlogo-menu-width');
+        hiddenChat = true;
+    }
 }
 
 $('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="https://i.imgur.com/DrzFOem.png"></img></div>');
 
 // If its the NCS pad, output a special welcome message.
 if(window.location.href === "https://musiqpad.com/p/ncs") {
-  // If it is the NCS pad.
-  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
+    // If it is the NCS pad.
+    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
 } else {
-  $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
+    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
 }
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
