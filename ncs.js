@@ -415,7 +415,7 @@ else{
     API.on(API.DATA.EVENTS.CHAT, showNotification);
     function showNotification(data){
         if (notifcationsEnabled === true && $('#cm-'+data.cid).hasClass('mention') === true){
-            var notif = new Notification($('#cm-'+data.cid+' .text .uname').text(), { icon: 'http://i.imgur.com/5ThdRUd.png', body: $('#cm-'+data.cid+' .text .umsg').text()});
+            var notif = new Notification($('#cm-'+data.cid+' .text .uname').text(), { icon: 'https://i.imgur.com/5ThdRUd.png', body: $('#cm-'+data.cid+' .text .umsg').text()});
             notif.onclick = function() {
                 window.focus();
                 notif.close()
@@ -487,7 +487,7 @@ else{
                     $("#notifySound").remove();
                 }, 100);
 
-                var notif = new Notification("Current Song is over 6 minutes", { icon: 'http://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
+                var notif = new Notification("Current Song is over 6 minutes", { icon: 'https://i.imgur.com/5ThdRUd.png', body: "The current song playing is over 6 minutes!"});
                 notif.onclick = function() {
                     window.focus();
                     notif.close()
@@ -594,7 +594,7 @@ function hideChat() {
   }
 }
 
-$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
+$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="https://i.imgur.com/DrzFOem.png"></img></div>');
 
 // If its the NCS pad, output a special welcome message.
 if(window.location.href === "https://musiqpad.com/p/ncs") {
