@@ -7,7 +7,7 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.2.0.0";
+    var version = "0.2.0.1";
     var versionMsg = "Config!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
@@ -86,7 +86,7 @@ else{
 // Download thas shit!
     function downloadThasShit() {
         //var playersrc = grabVidId();
-        window.open("http://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
+        window.open("https://embed.yt-mp3.com/watch?v=" + API.room.getMedia().cid);
         console.log("[NCS] Downloaded Video!");
     }
 
@@ -613,6 +613,10 @@ function hideChat() {
         $('#hideChat').removeClass('active');
         $('#ShowChatBtnCtrl').remove();
         $('.logo-menu').removeClass('NCSlogo-menu-width');
+        $('.btn-chat').removeClass('disabled');
+        $('.btn-people').removeClass('disabled');
+        $('.btn-waitlist').removeClass('disabled');
+        $('.ncs-tab').removeClass('disabled');
         hiddenChat = false;
     } else {
         $('#app-right').css('visibility', 'hidden');
@@ -622,11 +626,22 @@ function hideChat() {
         $('#NCSMenu').css('visibility', 'visible');
         $('.controls').append('<div id="ShowChatBtnCtrl" class="ctrl NCSBtnHover" onclick="hideChat();">Show Chat</div>');
         $('.logo-menu').addClass('NCSlogo-menu-width');
+        $('.btn-chat').addClass('disabled');
+        $('.btn-people').addClass('disabled');
+        $('.btn-waitlist').addClass('disabled');
+        $('.ncs-tab').addClass('disabled');
         hiddenChat = true;
     }
 }
 
-$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
+$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="https://i.imgur.com/DrzFOem.png"></img></div>');
+
+if(hiddenChat === true) {
+  $('.btn-chat').addClass('disabled');
+  $('.btn-people').addClass('disabled');
+  $('.btn-waitlist').addClass('disabled');
+  $('.ncs-tab').addClass('disabled');
+}
 
 // Begin Config
 function testDesc() {
