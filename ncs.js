@@ -7,11 +7,11 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.1.9.6";
-    var versionMsg = "Download";
+    var version = "0.2.0.0";
+    var versionMsg = "Config!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
-    var newFeaturesMsg = "Changed the control download button (by the like button) to always be there, rather then just when chat is hidden." + "<br>";
+    var newFeaturesMsg = "You can now configure your pad! You will need to upload a readable copy of a json file. You can find the example config here: <a href='https://github.com/bentenz5/NCS/blob/master/config.example.json'>here</a>. Keep in mind this is brand new and will be updated with more features in the future." + "<br>";
     var alertMsg = "";
     hiddenChat = false;
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
@@ -626,15 +626,43 @@ function hideChat() {
     }
 }
 
-$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="https://i.imgur.com/DrzFOem.png"></img></div>');
+// Begin Config
 
-// If its the NCS pad, output a special welcome message.
-if(window.location.href === "https://musiqpad.com/p/ncs") {
-    // If it is the NCS pad.
-    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Welcome to the NCS pad! Thanks for using NCS! Please read our rules here: <a href="https://electricgaming.ga/en/showthread.php?tid=12" target="_blank">https://electricgaming.ga/en/showthread.php?tid=12</a> -- Please share NCS with your friends!</center>');
-} else {
-    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Thanks for using NCS! Please share it with your friends!</center>');
+function testDesc() {
+  // Set test description. Example URI: https://rawgit.com/bentenz5/NCS/master/config.example.json
+  $('.logo-tab.description').html('@ncs="https://rawgit.com/bentenz5/NCS/master/config.example.json"');
+  console.info('TEST DESCRIPTION SET!')
 }
+
+  // TEST STUFF
+function config() {
+  var desc = $('.logo-tab.description').html();
+  link = desc.match(/@ncs="(.*?)"/);
+  link.shift();
+  link = link[0];
+
+  $.getJSON(link, function(data) {
+    welcome = data.welcome;
+    rules = data.rules;
+    theme = data.theme;
+
+    console.info('VAR WELCOME = ' + welcome);
+    console.info('VAR RULES = ' + rules);
+    console.info('VAR THEME = ' + theme);
+
+    $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">' + welcome + '</center>');
+
+    if(rules === "") {
+      console.error('No Rules Link Set');
+    } else {
+      $('#messages').append('<center style=color:#A77DC2 class="cm broadcast">Please read our rules, <a href="' + data.rules + '" target="_blank">click here!</a></center>');
+    }
+  });
+}
+// testDesc();
+config()
+
+$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="https://i.imgur.com/DrzFOem.png"></img></div>');
 
 API.on(API.DATA.EVENTS.CHAT, function(data){
     var msg = $('#cm-' + data.cid);
