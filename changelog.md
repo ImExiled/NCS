@@ -1,5 +1,9 @@
 # NCS Change Logs (latest at top)
 
+#### 0.2.0.1
+* Re-fied the mixed content warnings because I forgot to update local files with it.
+* Made the hide chat function disable the top navigation buttons (Chat, Waitlist, users, etc) until the user shows chat again.
+
 #### 0.2.0.0
 * Added the first itteration of the config system. Its currently very basic and will recieve more features in the future.
 * Added Example config to github.
