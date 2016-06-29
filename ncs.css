@@ -2,6 +2,13 @@
     text-decoration: none;
 }
 
+.disabled {
+    background-color: #0f0f0f !important;
+    border-color: #0f0f0f !important;
+    pointer-events: none;
+    cursor: default;
+}
+
 .centerPlayer {
   position: fixed; /* or absolute */
   top: 50%;
