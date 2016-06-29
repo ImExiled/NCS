@@ -626,8 +626,9 @@ function hideChat() {
     }
 }
 
-// Begin Config
+$('.controls').append('<div id="Download" class="ctrl NCSBtnHover mdi" onclick=downloadThasShit();><img class="mdi" src="http://i.imgur.com/DrzFOem.png"></img></div>');
 
+// Begin Config
 function testDesc() {
   // Set test description. Example URI: https://rawgit.com/bentenz5/NCS/master/config.example.json
   $('.logo-tab.description').html('@ncs="https://rawgit.com/bentenz5/NCS/master/config.example.json"');
