@@ -1,5 +1,11 @@
 # NCS Change Logs (latest at top)
 
+#### 0.2.0.0
+* Added the first itteration of the config system. Its currently very basic and will recieve more features in the future.
+* Added Example config to github.
+* You can now define welcome messages. Usefull if you have NCS loading the moment the pad loads.
+* You can now define a rules page. If none is defined, it will simply log no rules defined. This must be a link.
+
 #### 0.1.9.6
 * Changed the control download button (by the like button) to always be there, rather then just when chat is hidden.
 
