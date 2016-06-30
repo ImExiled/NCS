@@ -10,6 +10,17 @@
     bottom: 4px;
 }
 
+.StandWithKeemCenter {
+	position: relative;
+	left: 53%;
+}
+
+.KeemTextCenter {
+	position: relative;
+	left: 65%;
+	bottom: 4px;
+}
+
 .items>a {
     text-decoration: none;
 }
