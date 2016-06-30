@@ -1,3 +1,15 @@
+/* #StandWithKeem */
+#StandWithKeem {
+    position: relative;
+    left: 33%;
+}
+
+#KeemText {
+    position: relative;
+    left: 45%;
+    bottom: 4px;
+}
+
 .items>a {
     text-decoration: none;
 }
