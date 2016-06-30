@@ -29,7 +29,31 @@
 	}
 }
 
-/* other */
+/* #StandWithKeem */
+#StandWithKeem {
+    position: relative;
+    left: 33%;
+}
+
+#KeemText {
+    position: relative;
+    left: 45%;
+    bottom: 4px;
+}
+
+#StandWithKeem {
+    -webkit-box-shadow: 0px 1px 27px 7px rgba(20,120,15,1);
+    -moz-box-shadow: 0px 1px 27px 7px rgba(20,120,15,1);
+    box-shadow: 0px 1px 27px 7px rgba(20,120,15,1);
+    -moz-animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    -moz-animation-name: changeShadow;
+    -webkit-animation-name: changeShadow;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+}
 
 /* Chat Edits */
 #app-right,#msg-in {
