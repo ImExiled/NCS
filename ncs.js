@@ -153,6 +153,10 @@ else{
         });
     })();
 
+
+    // #StandWithKeem
+    $('#app-left').prepend('<iframe id="StandWithKeem" height="80px" width="300px" frameborder="0" src="https://akshatmittal.com/youtube-realtime/embed/#!/UC11PvrGPzo6Y7Zc6-e9cAKg" style="position: relative; top: 100px; color: white; border: 0; width:300px; height:80px; background-color: #FFF"></iframe><br><a id="KeemText" href="https://twitter.com/KEEMSTAR">#StandWithKeem</a>');
+    
     // Loli Counter script -- Ported from the old NCS by CSxKING
     $('#app-left').prepend('<span id="loli-counter">Loli count: 0</span>');
 
