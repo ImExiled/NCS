@@ -7,12 +7,12 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.2.0.1";
+    var version = "0.2.0.1__#StandWithKeem";
     var versionMsg = "Config!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
     var newFeaturesMsg = "You can now configure your pad! You will need to upload a readable copy of a json file. You can find the example config here: <a href='https://github.com/bentenz5/NCS/blob/master/config.example.json'>here</a>. Keep in mind this is brand new and will be updated with more features in the future." + "<br>";
-    var alertMsg = "";
+    var alertMsg = "Let's all <a href='https://twitter.com/KEEMSTAR'>#StandWithKeem</a>";
     hiddenChat = false;
     // var updateMsg = "NCS has updated! Refresh your page to get the latest update!<br> <a href='https://electricgaming.ga/en/showthread.php?tid=3' target='_blank'>Changelog</a>";
 
@@ -621,6 +621,8 @@ function hideChat() {
         $('.btn-people').removeClass('disabled');
         $('.btn-waitlist').removeClass('disabled');
         $('.ncs-tab').removeClass('disabled');
+        $('#StandWithKeem').removeClass('StandWithKeemCenter');
+        $('#KeemText').removeClass('KeemTextCenter');
         hiddenChat = false;
     } else {
         $('#app-right').css('visibility', 'hidden');
@@ -634,6 +636,8 @@ function hideChat() {
         $('.btn-people').addClass('disabled');
         $('.btn-waitlist').addClass('disabled');
         $('.ncs-tab').addClass('disabled');
+        $('#StandWithKeem').addClass('StandWithKeemCenter');
+        $('#KeemText').addClass('KeemTextCenter');
         hiddenChat = true;
     }
 }
