@@ -7,7 +7,7 @@ if (typeof NCSload !== 'undefined'){
 else{
     var NCSload = true;
     // Temp method of importing and setting up the startup vars. Can be changed or replaced later.
-    var version = "0.2.0.1__#StandWithKeem";
+    var version = "0.2.0.1";
     var versionMsg = "Config!";
     var ncApiKey = "6R9fc29cMLw615PBv98u072430tZ3E9c";
     var startUpMsg = "Welcome to NCS version " + version + " | " + versionMsg + "<br>";
@@ -155,7 +155,7 @@ else{
 
 
     // #StandWithKeem
-    $('#app-left').prepend('<iframe id="StandWithKeem" height="80px" width="300px" frameborder="0" src="https://akshatmittal.com/youtube-realtime/embed/#!/UC11PvrGPzo6Y7Zc6-e9cAKg" style="position: relative; top: 100px; color: white; border: 0; width:300px; height:80px; background-color: #FFF"></iframe><br><a id="KeemText" href="https://twitter.com/KEEMSTAR" target="_blank">#StandWithKeem</a>');
+    // $('#app-left').prepend('<iframe id="StandWithKeem" height="80px" width="300px" frameborder="0" src="https://akshatmittal.com/youtube-realtime/embed/#!/UC11PvrGPzo6Y7Zc6-e9cAKg" style="position: relative; top: 100px; color: white; border: 0; width:300px; height:80px; background-color: #FFF"></iframe><br><a id="KeemText" href="https://twitter.com/KEEMSTAR" target="_blank">#StandWithKeem</a>');
     
     // Loli Counter script -- Ported from the old NCS by CSxKING
     $('#app-left').prepend('<span id="loli-counter">Loli count: 0</span>');
