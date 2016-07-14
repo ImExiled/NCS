@@ -88,6 +88,19 @@
     -webkit-animation-direction: alternate;
 }
 
+.controls {
+    opacity: .3;
+}
+
+.controls:hover {
+    opacity: 1;
+}
+
+.song-progress {
+    position: relative;
+    top: 38px;
+}
+
 /* MESSAGE BOARDERS BRO */
 #messages .cm {
     border: 1px solid rgba(0,0,0,0);
