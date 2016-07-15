@@ -516,7 +516,7 @@ else{
 
     function initWebSocket () {
         try {
-            ncssocket = new WebSocket('wss://ncs.fuechschen.org');
+            ncssocket = new WebSocket('wss://ncs.fuechschen.org/mqp');
             ncssocket.onerror = function () {
                 console.log('[NCS] WebSocket-Connection failed.');
                 ncssocket.close();
