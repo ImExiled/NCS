@@ -1,5 +1,7 @@
 # NCS (Nightcore Community Script)
 
+## Notice: All my repositories will now be public. Private repos will no longer be hosted on github.
+
 ### Installation and Activation
 
 #### Note: This version of NCS will NOT work with alpha.nightcore-331.net! This will ONLY work with musiqpad pads!
