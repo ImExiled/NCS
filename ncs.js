@@ -20,7 +20,7 @@ else{
     function updateCheck(){
         $.ajax({
             type: "GET",
-            url: "https://rawgit.com/bentenz5/NCS/master/last.json"
+            url: "https://cdn.jsdelivr.net/gh/bentenz5/NCS/last.json"
         }).done(function(data){
             if(data.version != version){
                 $('#messages').append('<center style=color:#A77DC2 class="cm broadcast"><div class="mdi mdi-alert msg"></div> NCS has updated! Refresh your page to get the latest update!<br> <a href="'+data.changelog+'" target="_blank">Changelog</a> | New version : '+data.version+'</center>');
@@ -42,7 +42,7 @@ else{
 
 
     // NCS stylesheet
-    $('head').append('<link href="https://rawgit.com/bentenz5/NCS/master/ncs.css" rel="stylesheet" type="text/css">');
+    $('head').append('<link href="https://cdn.jsdelivr.net/gh/bentenz5/NCS/ncs.css" rel="stylesheet" type="text/css">');
 
     // Show startup messages
     $('#messages').append('<center style=color:#A77DC2 class="cm room-greet">' +
@@ -294,7 +294,7 @@ else{
     function ncsThemeShit() {
         if (ncssettings.customThemeEnabled === false) {
             $('#custom-theme').addClass('active');
-            $('head').append('<link id="NCSTheme" rel="stylesheet" href="https://rawgit.com/bentenz5/NCS/master/NCSTheme.css" type="text/css" />');
+            $('head').append('<link id="NCSTheme" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bentenz5/NCS/NCSTheme.css" type="text/css" />');
             ncssettings.customThemeEnabled = true;
         }
         else {
@@ -653,8 +653,8 @@ if(hiddenChat === true) {
 
 // Begin Config
 function testDesc() {
-  // Set test description. Example URI: https://rawgit.com/bentenz5/NCS/master/config.example.json
-  $('.logo-tab.description').html('@ncs="https://rawgit.com/bentenz5/NCS/master/config.example.json"');
+  // Set test description. Example URI: https://cdn.jsdelivr.net/gh/bentenz5/NCS/config.example.json
+  $('.logo-tab.description').html('@ncs="https://cdn.jsdelivr.net/gh/bentenz5/NCS/config.example.json"');
   console.info('TEST DESCRIPTION SET!')
 }
 
